@@ -34,8 +34,16 @@ CREATE TABLE [員工表]
 	[員工號] INT NOT NULL,
 	[姓名] NVARCHAR(10) NOT NULL,
 	[性別] BIT NULL,
-	[生日] DATE NULL,
-	[薪資] INT CONSTRAINT 最低薪資檢查表 CHECK([薪資]>=25250) NOT NULL, 
+	[生日] DATE NOT NULL,
+	[薪資] INT NOT NULL,
+	
+
+
+	-- 整張資料表的Constraint (只要有任何一個不成立即不可填入資料庫內)
+	CONSTRAINT 童工檢查 CHECK(YEAR(GETDATE())-YEAR([生日]) >= 16), 
+	CONSTRAINT 未來生日檢查 CHECK(生日 < GETDATE()),
+	-- 每一種FUNCTION 只能出現一次
+	CONSTRAINT 最低薪資檢查表 CHECK(薪資>=25250), 
 	-- CONSTRAINT 若沒打會有不好擷取的問題
 )
 GO
