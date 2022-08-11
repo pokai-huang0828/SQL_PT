@@ -3,11 +3,12 @@
 	1. NULL (無實質型別) / NOT NULL (變數必須有數值)
 	2. CHECK		檢查資料的值
 	3. DEFAULT		預設值
-	4. PRIMARY KEY	主鍵	 
+	4. PRIMARY KEY	主鍵(PK)	 
 		4.1 確保資料不重複
-		4.2 辨識/確認資料 Easy to find.
+		4.2 辨識/確認資料 Easy to find
 
-
+	5. UNIQUE		所有值只能出現一次
+	6. FOREIGN KEY	
 
 */
 
@@ -38,6 +39,31 @@ CREATE TABLE [員工表]
 	CONSTRAINT 最低薪資檢查 CHECK(薪資>=25250), 
 	-- CONSTRAINT 後的文字是用來做講查項目的解釋若沒打會有不好擷取的問題(會出現亂序文字導致不易閱讀)
 	
+)
+GO
+
+CREATE TABLE [員工表]
+(
+	[員工號] INT CONSTRAINT 員工號主鍵 PRIMARY KEY,
+	[姓名] NVARCHAR(10) NULL CONSTRAINT 姓名唯一 UNIQUE,
+	[性別] BIT NOT NULL,
+)
+GO
+
+CREATE TABLE 小員工
+(
+	員工號 INT PRIMARY KEY,
+	姓名 NVARCHAR(10),
+	薪資 INT,
+)
+GO
+
+CREATE TABLE 小訂單
+(
+	訂單編號 INT PRIMARY KEY,
+	金額 INT,
+	負責員工 INT CONSTRAINT 員工訂單關聯 FOREIGN KEY REFERENCES 小員工(員工號), 
+	定單時間 DATETIME2(2) DEFAULT SYSDATETIME()
 )
 GO
 
