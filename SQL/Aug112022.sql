@@ -1,5 +1,5 @@
 /*	Constraint 條件約束 確保資料正確性
-		
+
 	1. NULL (無實質型別) / NOT NULL (變數必須有數值)
 	2. CHECK		檢查資料的值
 	3. DEFAULT		預設值
@@ -11,8 +11,16 @@
 	6. FOREIGN KEY	
 
 */
-
-
+-- 展示UNIQUE
+/*
+CREATE TABLE [員工表]
+(
+	[員工號] INT CONSTRAINT 員工號主鍵 PRIMARY KEY, 
+	[姓名] NVARCHAR(10) NULL CONSTRAINT 姓名唯一 UNIQUE,
+	[性別] BIT NOT NULL,
+)
+GO
+*/
 USE 練習
 GO
 
@@ -42,14 +50,6 @@ CREATE TABLE [員工表]
 )
 GO
 
-CREATE TABLE [員工表]
-(
-	[員工號] INT CONSTRAINT 員工號主鍵 PRIMARY KEY,
-	[姓名] NVARCHAR(10) NULL CONSTRAINT 姓名唯一 UNIQUE,
-	[性別] BIT NOT NULL,
-)
-GO
-
 CREATE TABLE 小員工
 (
 	員工號 INT PRIMARY KEY,
@@ -67,11 +67,39 @@ CREATE TABLE 小訂單
 )
 GO
 
-DROP TABLE [員工表]
+DROP TABLE 小訂單
+CREATE TABLE 小訂單
+(
+	訂單編號 INT PRIMARY KEY,
+	金額 INT,
+	負責員工 INT CONSTRAINT 員工訂單關聯 FOREIGN KEY REFERENCES 小員工(員工號)
+		ON UPDATE CASCADE -- NO ACTION | CASCADE | SET NULL | SET DEFAULT 
+		ON DELETE SET NULL,
+	定單時間 DATETIME2(2) DEFAULT SYSDATETIME()
+)
 GO
 
 SELECT * FROM [員工表];
 GO
 
+EXEC sp_help '員工表';
+SELECT * FROM sys.tables;
+
+
+/*	自動編號 
+		1. 整數型別 (INT、BIGINT)
+		2. 每張資料表職能有一個
+
+	問題點: 
+		1. 破表(號碼用盡)	
+		2. 跳號
+*/
+
+CREATE TABLE 編號測試表
+(
+	編號 INT IDENTITY(1,1), -- (開始值, 成長值)
+	姓名 NVARCHAR(10),
+	薪資 INT,
+)
 
 
