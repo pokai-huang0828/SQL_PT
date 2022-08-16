@@ -5,7 +5,7 @@ EXEC sp_help '員工表';
 SELECT * FROM sys.tables;
 
 
-/*	自動編號 
+/*	自動編號 (企業不常用)
 		1. 整數型別 (INT、BIGINT)
 		2. 每張資料表職能有一個
 
@@ -23,6 +23,11 @@ CREATE TABLE 編號測試表
 
 INSERT INTO 編號測試表 VALUES('DDD','DDD');
 INSERT INTO 編號測試表 VALUES('DDD',400);
+
+--- 手動補自動編號(各家都有自己的一套方式)
+SET IDENTITY_INSERT [編號測試表] ON;
+INSERT INTO 編號測試表(編號, 姓名, 薪資) VALUES(5, 'KKKK',400);
+SET IDENTITY_INSERT [編號測試表] OFF;
 
 SELECT * FROM 編號測試表
 
@@ -92,3 +97,13 @@ INSERT INTO [員工表] VALUES(7, 'JJJJ', 0, '2000-1-25', 28000, DEFAULT),
 
 INSERT INTO [員工表](員工號, 姓名, 性別, 生日, 薪資) VALUES(5, 'DDDD', 1, '1995-12-25', 88000);
 INSERT INTO [員工表](員工號, 姓名, 生日, 薪資) VALUES(6, 'DFGHH', '1999-2-25', 48000);
+
+--- 暫時 關閉/開啟 條件約束
+ALTER TABLE [員工表] NOCHECK CONSTRAINT 最低薪資檢查;
+INSERT INTO [員工表] VALUES(10,'LLLLLL',0,'1990-7-17',38000, DEFAULT);
+ALTER TABLE [員工表] CHECK CONSTRAINT 最低薪資檢查;
+
+SELECT * FROM [員工表];
+
+--------------------------------------------------------------------------------
+
