@@ -142,3 +142,13 @@ FROM [員工表]
 WHERE 員工號 <= 7;
 
 SELECT * FROM [員工表3];
+
+SELECT 員工號, 姓名, 性別, 薪資, 生日
+INTO [員工表4] --- 全新，不存在的資料表
+FROM [員工表]
+WHERE 1=0;
+
+SELECT * FROM [員工表4];
+
+-- MySQL
+-- CREATE TABLE [員工表5] LIKE [員工表]
