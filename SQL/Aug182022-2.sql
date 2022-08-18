@@ -29,15 +29,24 @@ SELECT DISTINCT 客戶編號 FROM 訂貨主檔 --- 剔除重複值  0.0377
 SELECT DISTINCT 客戶編號, 訂單號碼 FROM 訂貨主檔 --- 注意結果，欄位比對
 
 
+---SQL Server TOP (特有寫法)
+SELECT TOP(5) 員工編號, 姓名, 稱呼, 雇用日期, 薪資 FROM 員工;  --- 直接觀看資料中的前幾筆資料
+
+SELECT TOP(5) 員工編號, 姓名, 稱呼, 雇用日期, 薪資 FROM 員工 ORDER BY 薪資 DESC;
+SELECT TOP(10) PERCENT 員工編號, 姓名, 稱呼, 雇用日期, 薪資 FROM 員工 ORDER BY 薪資 DESC;
 
 
+SELECT TOP(15) 員工編號, 姓名, 稱呼, 雇用日期, 薪資 FROM 員工 ORDER BY 薪資 DESC;
+SELECT TOP(11) 員工編號, 姓名, 稱呼, 雇用日期, 薪資 FROM 員工 ORDER BY 薪資 DESC;
+SELECT TOP(11) WITH TIES 員工編號, 姓名, 稱呼, 雇用日期, 薪資 FROM 員工 ORDER BY 薪資 DESC; --- 將數值一樣一同列出
 
 
+UPDATE [員工]
+SET 地址='台'+地址
+WHERE [員工編號]<=3;
 
-
-
-
-
+UPDATE TOP(3)[員工]
+SET 地址='台'+地址;
 
 
 
