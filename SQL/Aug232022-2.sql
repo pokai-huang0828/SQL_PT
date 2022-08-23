@@ -34,7 +34,7 @@ SELECT 1.0*20/3;   --------   6.6666...
 
 --------------------------------------------------------------------
 ---  Date Functions
-
+/*
 SELECT 員工編號, 姓名, 職稱, 稱呼, 雇用日期, 薪資 
 FROM 員工 
 WHERE 雇用日期 >= '2002-1-1';
@@ -50,6 +50,18 @@ WHERE 雇用日期 >= '2002-1-1' AND 雇用日期 < '2003-1-1';
 SELECT 員工編號, 姓名, 職稱, 稱呼, 雇用日期, 薪資 
 FROM 員工 
 WHERE 雇用日期 BETWEEN '2002-1-1' AND '2002-12-31 23:59:59';
+*/
+/*
+	DATEFROMPARTS
+	DATETIMEFROMPARTS
+	DATETIME2FROMPARTS
+*/
+SELECT DATEFROMPARTS(2010, 10, 10);
+SELECT DATETIMEFROMPARTS(2010, 10, 10, 10, 20, 30, 123);
+SELECT DATETIME2FROMPARTS(2010, 10, 10, 10, 20, 30, 123, 5);
+
+-- EOMONTH(END OF MONTH) 得本月最後一天
+SELECT EOMONTH(GETDATE());
 
 /* 盡可能別在 WHERE 部分使用函數
 	1.	搜尋時間變慢
@@ -119,7 +131,6 @@ SELECT 員工編號, 姓名, 職稱, 稱呼, 出生日期, 薪資
 FROM 員工 
 WHERE 出生日期 > @datel1;
 
-
 DECLARE @datel DATE = DATEADD(YEAR, -65, GETDATE());
 SELECT 員工編號, 姓名, 職稱, 稱呼, 出生日期, 薪資 
 FROM 員工 
@@ -133,3 +144,16 @@ WHERE 出生日期 < @datel;
 
 SELECT '巨匠'+CAST(100 AS nvarchar);
 SELECT '巨匠'+CONVERT(nvarchar, 100);
+
+----------------------------------------------------
+--- 叫出半個月前的資料
+SELECT DATEADD(MONTH,-6,GETDATE());                         --  X
+SELECT DATEADD(DAY,1,EOMONTH(DATEADD(MONTH,-7,GETDATE()))); --  O
+
+
+
+DECLARE @date1 DATE=DATEADD(DAY,1,EOMONTH(DATEADD(MONTH,-2,GETDATE())));
+DECLARE @date2 DATE=EOMONTH(DATEADD(MONTH,-1,GETDATE()));
+SELECT 員工編號,姓名,稱呼,職稱,雇用日期,薪資
+FROM 員工
+WHERE 雇用日期>=@date1 AND 雇用日期<@date2;
