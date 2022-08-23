@@ -91,10 +91,45 @@ SELECT DATEADD(DAY, -20, SYSDATETIME());
 SELECT DATEDIFF(YEAR, '2002-9-10', GETDATE());
 SELECT DATEDIFF(HOUR, GETDATE(), '2022-9-10')/24.0;
 
+SELECT 員工編號, 姓名, 職稱, 稱呼, 出生日期, 薪資 FROM 員工 ORDER BY 出生日期 DESC; 
+
+
+-- TYPE 1
 SELECT 員工編號, 姓名, 職稱, 稱呼, 出生日期, 薪資 
 FROM 員工 
-WHERE DATEDIFF(YEAR, 出生日期, GETDATE()) <= 40;
+WHERE DATEDIFF(YEAR, 出生日期, GETDATE()) < 40;
 
 SELECT 員工編號, 姓名, 職稱, 稱呼, 出生日期, 薪資 
 FROM 員工 
 WHERE DATEDIFF(YEAR, 出生日期, GETDATE()) >= 65;
+
+--- TYPE 2
+SELECT 員工編號, 姓名, 職稱, 稱呼, 出生日期, 薪資 
+FROM 員工 
+WHERE 出生日期 > DATEADD(YEAR, -40, GETDATE());
+
+SELECT 員工編號, 姓名, 職稱, 稱呼, 出生日期, 薪資 
+FROM 員工 
+WHERE 出生日期 < DATEADD(YEAR, -65, GETDATE());
+
+--- TYPE 3 (BEST WAY!!) 
+--- 先在外部運算在帶入以減少運算時間
+DECLARE @datel1 DATE = DATEADD(YEAR, -40, GETDATE());
+SELECT 員工編號, 姓名, 職稱, 稱呼, 出生日期, 薪資 
+FROM 員工 
+WHERE 出生日期 > @datel1;
+
+
+DECLARE @datel DATE = DATEADD(YEAR, -65, GETDATE());
+SELECT 員工編號, 姓名, 職稱, 稱呼, 出生日期, 薪資 
+FROM 員工 
+WHERE 出生日期 < @datel;
+
+
+/*	CAST / CONVERT 
+	1. CAST(值 AS 目標型別)
+	2. CONVERT(目標型別, 值, [格式參數])
+*/
+
+SELECT '巨匠'+CAST(100 AS nvarchar);
+SELECT '巨匠'+CONVERT(nvarchar, 100);
