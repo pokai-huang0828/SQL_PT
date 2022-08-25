@@ -110,3 +110,58 @@ SELECT * FROM 練習員工表
 SELECT 員工編號,姓名,員工種類
 	,COALESCE(薪資*15,時薪*工作時數,銷售金額*傭金比率) AS 給付金額
 FROM 練習員工表
+
+-----------------------------------------------------------------------
+
+SELECT 員工編號, 姓名, 職稱, 雇用日期, 薪資 
+FROM 員工;
+
+--CONVERT(目標型別, 值 [,格式參數]) https://docs.microsoft.com/zh-tw/sql/t-sql/functions/cast-and-convert-transact-sql?view=sql-server-ver16
+SELECT CONVERT(NVARCHAR, GETDATE());
+SELECT CONVERT(NVARCHAR, GETDATE(), 100);	--美式英文
+SELECT CONVERT(NVARCHAR, GETDATE(), 101);	--ANSI
+SELECT CONVERT(NVARCHAR, GETDATE(), 102);	--英式英文/法文
+SELECT CONVERT(NVARCHAR, GETDATE(), 104);	--德文
+SELECT CONVERT(NVARCHAR, GETDATE(), 111);	--日本
+SELECT CONVERT(NVARCHAR, GETDATE(), 110);	--USA
+
+SELECT 員工編號, 姓名, 職稱, 雇用日期,
+	CONVERT(nvarchar, CAST(薪資 AS money), 1) AS 薪水 FROM 員工;
+
+
+--- SEARCH 標準數值格式字串 https://docs.microsoft.com/zh-tw/dotnet/standard/base-types/standard-numeric-format-strings
+--- FORMAT(值, 格式化)
+SELECT FORMAT(54000, 'C');
+SELECT FORMAT(255, 'X');
+SELECT FORMAT(0.8756, 'P');
+SELECT FORMAT(54000, '#.0');
+SELECT FORMAT(0.8756, '#.0%');
+
+
+SELECT FORMAT(GETDATE(), 'D');  --- 長日期
+SELECT FORMAT(GETDATE(), 'd');  --- 短日期
+SELECT FORMAT(GETDATE(), 'F');
+SELECT FORMAT(GETDATE(),'f')
+SELECT FORMAT(GETDATE(),'T')
+SELECT FORMAT(GETDATE(),'t')
+SELECT FORMAT(GETDATE(),'yyyy-MM-dd dddd HH:mm:ss')
+
+SELECT DATEPART(WEEKDAY, GETDATE());
+SELECT FORMAT(GETDATE(), 'ddd');
+
+
+SELECT FORMAT(GETDATE(), 'F', 'en-us');  --- 語系
+SELECT FORMAT(GETDATE(),'F','en-us')
+SELECT FORMAT(GETDATE(),'F','en-gb')
+SELECT FORMAT(GETDATE(),'F','fr-fr')
+SELECT FORMAT(GETDATE(),'F','ja-jp')
+SELECT FORMAT(GETDATE(),'F','ko-kr')
+SELECT FORMAT(GETDATE(),'ddd','ja-jp')
+SELECT FORMAT(GETDATE(),'dddd','ja-jp')
+
+
+SELECT FORMAT(54000.567,'C','fr-fr')
+SELECT FORMAT(54000.567,'C','ja-jp')
+SELECT FORMAT(54000.567,'C','ko-kr')
+SELECT FORMAT(54000.567,'C','ja-jp')
+SELECT FORMAT(54000.567,'C','it-it')
