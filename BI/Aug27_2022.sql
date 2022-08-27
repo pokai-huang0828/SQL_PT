@@ -164,3 +164,12 @@ SELECT * FROM [dbo].[北風客戶少]
 
 BULK INSERT 練習.[dbo].[北風客戶少] FROM 'C:\AA\北風客戶.txt'
 WITH (FORMATFILE='C:\AA\北風少.fmt');
+
+--- 少欄至多欄
+--- bcp [練習].[dbo].[北風客戶] format nul -T -w -t, -f C:\AA\北風多.fmt
+--- 格式檔: 描述給電腦聽
+
+--- bcp [練習].[dbo].[北風客戶] in C:\AA\北風客戶.txt -T -f C:\AA\北風客戶少.csv
+
+BULK INSERT 練習.[dbo].[北風客戶] FROM 'C:\AA\北風客戶少.csv'
+WITH (FORMATFILE='C:\AA\北風多.fmt');
