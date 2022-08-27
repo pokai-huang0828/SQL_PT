@@ -1,0 +1,13 @@
+14.0
+11
+1       SQLNCHAR            2       10      ""   1     客戶編號       Chinese_Taiwan_Stroke_CI_AI
+2       SQLNCHAR            2       80      ""   2     公司名稱       Chinese_Taiwan_Stroke_CI_AI
+3       SQLNCHAR            2       60      ""   3     連絡人         Chinese_Taiwan_Stroke_CI_AI
+4       SQLNCHAR            2       60      ""   4     連絡人職稱     Chinese_Taiwan_Stroke_CI_AI
+5       SQLNCHAR            2       120     ""   5     地址           Chinese_Taiwan_Stroke_CI_AI
+6       SQLNCHAR            2       30      ""   6     城市           Chinese_Taiwan_Stroke_CI_AI
+7       SQLNCHAR            2       30      ""   7     行政區         Chinese_Taiwan_Stroke_CI_AI
+8       SQLNCHAR            2       20      ""   8     郵遞區號       Chinese_Taiwan_Stroke_CI_AI
+9       SQLNCHAR            2       30      ""   9     國家地區       Chinese_Taiwan_Stroke_CI_AI
+10      SQLNCHAR            2       48      ""   10    電話           Chinese_Taiwan_Stroke_CI_AI
+11      SQLNCHAR            2       48      ""   11    傳真電話       Chinese_Taiwan_Stroke_CI_AI
