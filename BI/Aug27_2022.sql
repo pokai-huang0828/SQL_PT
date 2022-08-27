@@ -146,3 +146,21 @@ BULK INSERT 練習.[dbo].練習員工 FROM 'C:\AA\TestData.txt'
 WITH (DATAFILETYPE = 'widechar', FIELDTERMINATOR = ',');
 
 SELECT * FROM 練習.dbo.練習員工;
+
+
+--bcp "SELECT 客戶編號,公司名稱,連絡人,連絡人職稱,電話,傳真電話,地址 FROM 中文北風.dbo.客戶" queryout C:\AA\北風客戶少.csv -T -t, -w
+SELECT 客戶編號, 公司名稱, 連絡人, 連絡人職稱, 電話, 傳真電話, 地址 INTO 北風客戶少 FROM 中文北風.dbo.客戶 WHERE 1=0;
+
+TRUNCATE TABLE [dbo].[北風客戶]
+TRUNCATE TABLE [dbo].[北風客戶少]
+SELECT * FROM [dbo].[北風客戶]
+SELECT * FROM [dbo].[北風客戶少]
+
+--- 多欄至少欄
+--- bcp [練習].[dbo].[北風客戶少] format nul -T -w -t, -f C:\AA\北風少.fmt
+--- 格式檔: 描述給電腦聽
+
+--- bcp [練習].[dbo].[北風客戶少] in C:\AA\北風客戶.txt -T -f C:\AA\北風少.fmt
+
+BULK INSERT 練習.[dbo].[北風客戶少] FROM 'C:\AA\北風客戶.txt'
+WITH (FORMATFILE='C:\AA\北風少.fmt');
