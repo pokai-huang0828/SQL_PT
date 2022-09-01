@@ -101,18 +101,24 @@ SELECT [database_id], [name], [collation_name] FROM sys.databases;
 
 	SUM、AVG、MAX、MIN、COUNT    
 	VAR、VARP、STDEV、STDEVP
+
+	1. 可進行多類分組
+	2. 可利用計算或函示結果，進行分析
+	3. 注意 NULL值，彙總函數會略過，COUNT(*)例外
+	4. 統計 VS. 明細 -- 有統計就不會有明細
+
 */
 USE 中文北風
 
 SELECT * FROM 員工
 
-SELECT 稱呼, COUNT(員工編號) AS 人數
+SELECT 稱呼, 職稱, COUNT(員工編號) AS 人數
 	,SUM(薪資) AS 薪資總和
 	,AVG(薪資) AS 平均薪資
 	,MAX(薪資) AS 最高薪資
 	,MIN(薪資) AS 最低薪資
 FROM 員工
-GROUP BY 稱呼;
+GROUP BY 稱呼, 職稱;
 
 
 -------------------------   TEST   ------------------------------
@@ -126,4 +132,69 @@ FROM 產品資料 AS A JOIN 產品類別 AS B ON A.產品編號=B.類別編號
 GROUP BY B.類別名稱
 
 ------------------------------------------------------------------
+--- 中文北風各縣市人數
+--- TIP SUBSTRING(擷取目標, 開始位置, 結束擷取位置)
 
+SELECT SUBSTRING(地址, 1, 3) AS 縣市, 
+	COUNT(員工編號) AS 人數
+FROM 員工
+GROUP BY SUBSTRING(地址, 1, 3)
+
+SELECT SUBSTRING(地址, 1, 3) AS 縣市, 
+	COUNT(*) AS 人數
+FROM 員工
+GROUP BY SUBSTRING(地址, 1, 3)
+
+
+
+---------------------------------------------------------
+-- 統計
+SELECT 稱呼, COUNT(員工編號) AS 人數
+FROM 員工
+GROUP BY 稱呼;
+-- 明細
+SELECT 員工編號, 姓名 FROM 員工
+WHERE 稱呼='小姐';
+
+
+
+SELECT 稱呼,職稱,COUNT(員工編號) AS 人數	
+FROM 員工
+GROUP BY 稱呼,職稱;
+
+
+SELECT 稱呼,職稱,COUNT(員工編號) AS 人數	
+FROM 員工
+GROUP BY 稱呼,職稱
+HAVING COUNT(*) >= 3 --- HAVING : GROUP BY 之後的 WHERE
+
+
+SELECT 職稱,COUNT(員工編號) AS 人數	
+FROM 員工
+WHERE 稱呼='小姐'
+GROUP BY 職稱
+HAVING COUNT(*)>=2
+
+
+
+SELECT 職稱,COUNT(員工編號) AS 人數	
+FROM 員工
+WHERE 稱呼='小姐'
+GROUP BY 職稱;
+
+--- SQL Server 特有
+SELECT 職稱,COUNT(員工編號) AS 人數	
+FROM 員工
+WHERE 稱呼='小姐'
+GROUP BY ALL 職稱;
+
+SELECT DISTINCT 職稱 FROM 員工;  --  DISTINCT去重複
+SELECT 職稱 FROM 員工 WHERE 稱呼='小姐';
+
+
+------------------------------------------------------------------
+
+---- 2003 年銷售數量 TOP10
+
+
+---- 2004 年有買過 "海鮮類" 的客戶，依照購買時間遞減排序
