@@ -1,31 +1,31 @@
-USE ½m½m;
+USE ç·´ç·´;
 
 
-/* UNION ¾ã¦X
-	1. ¨ÌµM»Ý­nªá¶O®É¶¡¡B¹Bºâ¦¨¥»
-	2. ¨ä¨Ó·½¸ê®ÆÄæ¦ì¼Æ¥²¶·¬Û¦P
-	3. ¨ä¨Ó·½¸ê®ÆÄæ¦ì«¬§O¥²¶·¬Û®e
-	4. ¨äµ²ªGÄæ¦ì¦WºÙ¡A·|¥H²Ä¤@¥÷¬d¸ßµ²ªGªºÄæ¦ì¬°³Ì«áµ²ªGªºÄæ¦W
+/* UNION æ•´åˆ
+	1. ä¾ç„¶éœ€è¦èŠ±è²»æ™‚é–“ã€é‹ç®—æˆæœ¬
+	2. å…¶ä¾†æºè³‡æ–™æ¬„ä½æ•¸å¿…é ˆç›¸åŒ
+	3. å…¶ä¾†æºè³‡æ–™æ¬„ä½åž‹åˆ¥å¿…é ˆç›¸å®¹
+	4. å…¶çµæžœæ¬„ä½åç¨±ï¼Œæœƒä»¥ç¬¬ä¸€ä»½æŸ¥è©¢çµæžœçš„æ¬„ä½ç‚ºæœ€å¾Œçµæžœçš„æ¬„å
 
 */
----		­ç°£­«½Æ­È 0.02
-SELECT «~¦W FROM ¥¨¥¨
+---		å‰”é™¤é‡è¤‡å€¼ 0.02
+SELECT å“å FROM å·¨å·¨
 UNION
-SELECT «~¦W FROM ¦K¦K;
+SELECT å“å FROM åŒ åŒ ;
 
----		ª½±µ¬ÛÂH 0.008
-SELECT «~¦W FROM ¥¨¥¨
+---		ç›´æŽ¥ç›¸é» 0.008
+SELECT å“å FROM å·¨å·¨
 UNION ALL
-SELECT «~¦W FROM ¦K¦K;
+SELECT å“å FROM åŒ åŒ ;
 ------------------------
 
---- ©w§Ç Collation
----		·|³y¦¨¸ê®Æ®w¤¤ªº "¤å¦r¸ê®Æ" ·j´M¡B±Æ§Ç ¥X°ÝÃD
----		Server ©w§Ç¤£¥iÅÜ°Ê¡A¦ý¥i¦b·s¶}¸ê®Æ®w®É­«·s©w§Ç
+--- å®šåº Collation
+---		æœƒé€ æˆè³‡æ–™åº«ä¸­çš„ "æ–‡å­—è³‡æ–™" æœå°‹ã€æŽ’åº å‡ºå•é¡Œ
+---		Server å®šåºä¸å¯è®Šå‹•ï¼Œä½†å¯åœ¨æ–°é–‹è³‡æ–™åº«æ™‚é‡æ–°å®šåº
 
 
-USE ·s·s
-USE ¤¤¤å¥_­·
+USE æ–°æ–°
+USE ä¸­æ–‡åŒ—é¢¨
 
 SELECT * FROM fn_helpcollations();
 SELECT * FROM fn_helpcollations() WHERE [name] LIKE '%taiwan%';
@@ -34,36 +34,36 @@ SELECT * FROM fn_helpcollations() WHERE [name] LIKE '%korean%';
 
 
 
---«Ø¥ß¸ê®Æ®w¡A«ü©w©w§Ç
-CREATE DATABASE ½m²ß
+--å»ºç«‹è³‡æ–™åº«ï¼ŒæŒ‡å®šå®šåº
+CREATE DATABASE ç·´ç¿’
 ON PRIMARY
 (
-	NAME='½m²ßData',FILENAME='C:\½m²ß®a\½m²ß¸ê®Æ.mdf',
+	NAME='ç·´ç¿’Data',FILENAME='C:\ç·´ç¿’å®¶\ç·´ç¿’è³‡æ–™.mdf',
 	SIZE=20MB,MAXSIZE=UNLIMITED,FILEGROWTH=30MB
 )
 
 LOG ON
 (
-	NAME='½m²ßLog',FILENAME='C:\½m²ß®a\½m²ß°O¿ý.ldf',
+	NAME='ç·´ç¿’Log',FILENAME='C:\ç·´ç¿’å®¶\ç·´ç¿’è¨˜éŒ„.ldf',
 	SIZE=30MB,MAXSIZE=UNLIMITED,FILEGROWTH=50%
 )
 COLLATE Japanese_CI_AI
 GO
 
 
---«Ø¥ß¸ê®Æªí¡A¤å¦rÄæ¦ì©w§Ç
-CREATE TABLE ½m²ßªí
+--å»ºç«‹è³‡æ–™è¡¨ï¼Œæ–‡å­—æ¬„ä½å®šåº
+CREATE TABLE ç·´ç¿’è¡¨
 (
-    ¤å¦rÄæ¦ì1 NVARCHAR(30) COLLATE Japanese_CI_AI,
-	¤å¦rÄæ¦ì2 NVARCHAR(30) COLLATE Chinese_Taiwan_Bopomofo_CI_AI,
-	¤å¦rÄæ¦ì3 NVARCHAR(30) COLLATE Korean_90_CI_AI_KS,
-	¼Æ­È1 INT
+    æ–‡å­—æ¬„ä½1 NVARCHAR(30) COLLATE Japanese_CI_AI,
+	æ–‡å­—æ¬„ä½2 NVARCHAR(30) COLLATE Chinese_Taiwan_Bopomofo_CI_AI,
+	æ–‡å­—æ¬„ä½3 NVARCHAR(30) COLLATE Korean_90_CI_AI_KS,
+	æ•¸å€¼1 INT
 )
 
 ---------------------------------
 
-SELECT * FROM ­û¤u ORDER BY ©m¦W;
-SELECT * FROM ­û¤u ORDER BY ©m¦W COLLATE Chinese_Taiwan_Bopomofo_CI_AI;
+SELECT * FROM å“¡å·¥ ORDER BY å§“å;
+SELECT * FROM å“¡å·¥ ORDER BY å§“å COLLATE Chinese_Taiwan_Bopomofo_CI_AI;
 
 SELECT * FROM fn_helpcollations() WHERE [name] LIKE '%taiwan%';
 SELECT * FROM fn_helpcollations() WHERE [name] LIKE '%taiwan%' COLLATE Chinese_Taiwan_Bopomofo_CI_AI;
@@ -71,130 +71,149 @@ SELECT * FROM fn_helpcollations() WHERE [name] LIKE '%taiwan%' COLLATE Chinese_T
 
 
 
-USE ·s·s;
+USE æ–°æ–°;
 
-CREATE TABLE ·s¥¨¥¨
+CREATE TABLE æ–°å·¨å·¨
 (
-    ²£«~½s¸¹ INT,
-	²£«~¦W NVARCHAR(20),
-	°â»ù MONEY
+    ç”¢å“ç·¨è™Ÿ INT,
+	ç”¢å“å NVARCHAR(20),
+	å”®åƒ¹ MONEY
 )
 
-INSERT INTO ·s¥¨¥¨ SELECT * FROM ½m½m.dbo.¥¨¥¨;
+INSERT INTO æ–°å·¨å·¨ SELECT * FROM ç·´ç·´.dbo.å·¨å·¨;
 
-SELECT * FROM ·s¥¨¥¨;
-
-SELECT A.*,B.*
-FROM ·s·s.dbo.·s¥¨¥¨ AS A JOIN ¤¤¤å¥_­·.dbo.²£«~¸ê®Æ AS B ON A.²£«~¦W=B.²£«~; -- ERROR
-
+SELECT * FROM æ–°å·¨å·¨;
 
 SELECT A.*,B.*
-FROM ·s·s.dbo.·s¥¨¥¨ AS A JOIN ¤¤¤å¥_­·.dbo.²£«~¸ê®Æ AS B ON A.²£«~¦W=B.²£«~ COLLATE Chinese_Taiwan_Stroke_CI_AI;  -- PASS
+FROM æ–°æ–°.dbo.æ–°å·¨å·¨ AS A JOIN ä¸­æ–‡åŒ—é¢¨.dbo.ç”¢å“è³‡æ–™ AS B ON A.ç”¢å“å=B.ç”¢å“; -- ERROR
+
+
+SELECT A.*,B.*
+FROM æ–°æ–°.dbo.æ–°å·¨å·¨ AS A JOIN ä¸­æ–‡åŒ—é¢¨.dbo.ç”¢å“è³‡æ–™ AS B ON A.ç”¢å“å=B.ç”¢å“ COLLATE Chinese_Taiwan_Stroke_CI_AI;  -- PASS
 
 SELECT * FROM SYS.databases;
 SELECT [database_id], [name], [collation_name] FROM sys.databases;
 
 ---------------------------------------------------------------------------
 
-/* ²Î­p
-	»E¦X¨ç¼Æ (Aggreate Function)
+/* çµ±è¨ˆ
+	èšåˆå‡½æ•¸ (Aggreate Function)
 
-	SUM¡BAVG¡BMAX¡BMIN¡BCOUNT    
-	VAR¡BVARP¡BSTDEV¡BSTDEVP
+	SUMã€AVGã€MAXã€MINã€COUNT    
+	VARã€VARPã€STDEVã€STDEVP
 
-	1. ¥i¶i¦æ¦hÃþ¤À²Õ
-	2. ¥i§Q¥Î­pºâ©Î¨ç¥Üµ²ªG¡A¶i¦æ¤ÀªR
-	3. ª`·N NULL­È¡A·JÁ`¨ç¼Æ·|²¤¹L¡ACOUNT(*)¨Ò¥~
-	4. ²Î­p VS. ©ú²Ó -- ¦³²Î­p´N¤£·|¦³©ú²Ó
+	1. å¯é€²è¡Œå¤šé¡žåˆ†çµ„
+	2. å¯åˆ©ç”¨è¨ˆç®—æˆ–å‡½ç¤ºçµæžœï¼Œé€²è¡Œåˆ†æž
+	3. æ³¨æ„ NULLå€¼ï¼Œå½™ç¸½å‡½æ•¸æœƒç•¥éŽï¼ŒCOUNT(*)ä¾‹å¤–
+	4. çµ±è¨ˆ VS. æ˜Žç´° -- æœ‰çµ±è¨ˆå°±ä¸æœƒæœ‰æ˜Žç´°
 
 */
-USE ¤¤¤å¥_­·
+USE ä¸­æ–‡åŒ—é¢¨
 
-SELECT * FROM ­û¤u
+SELECT * FROM å“¡å·¥
 
-SELECT ºÙ©I, Â¾ºÙ, COUNT(­û¤u½s¸¹) AS ¤H¼Æ
-	,SUM(Á~¸ê) AS Á~¸êÁ`©M
-	,AVG(Á~¸ê) AS ¥­§¡Á~¸ê
-	,MAX(Á~¸ê) AS ³Ì°ªÁ~¸ê
-	,MIN(Á~¸ê) AS ³Ì§CÁ~¸ê
-FROM ­û¤u
-GROUP BY ºÙ©I, Â¾ºÙ;
+SELECT ç¨±å‘¼, è·ç¨±, COUNT(å“¡å·¥ç·¨è™Ÿ) AS äººæ•¸
+	,SUM(è–ªè³‡) AS è–ªè³‡ç¸½å’Œ
+	,AVG(è–ªè³‡) AS å¹³å‡è–ªè³‡
+	,MAX(è–ªè³‡) AS æœ€é«˜è–ªè³‡
+	,MIN(è–ªè³‡) AS æœ€ä½Žè–ªè³‡
+FROM å“¡å·¥
+GROUP BY ç¨±å‘¼, è·ç¨±;
 
 
 -------------------------   TEST   ------------------------------
---- ¤¤¤å¥_­·¦UÃþ²£«~ªº¥­§¡»ù®æ
+--- ä¸­æ–‡åŒ—é¢¨å„é¡žç”¢å“çš„å¹³å‡åƒ¹æ ¼
 
-SELECT B.Ãþ§O¦WºÙ
-	,AVG(³æ»ù) AS ¥­§¡»ù
-	,MAX(³æ»ù) AS ³Ì°ª»ù
-	,MIN(³æ»ù) AS ³Ì§C»ù
-FROM ²£«~¸ê®Æ AS A JOIN ²£«~Ãþ§O AS B ON A.²£«~½s¸¹=B.Ãþ§O½s¸¹
-GROUP BY B.Ãþ§O¦WºÙ
+SELECT B.é¡žåˆ¥åç¨±
+	,AVG(å–®åƒ¹) AS å¹³å‡åƒ¹
+	,MAX(å–®åƒ¹) AS æœ€é«˜åƒ¹
+	,MIN(å–®åƒ¹) AS æœ€ä½Žåƒ¹
+FROM ç”¢å“è³‡æ–™ AS A JOIN ç”¢å“é¡žåˆ¥ AS B ON A.ç”¢å“ç·¨è™Ÿ=B.é¡žåˆ¥ç·¨è™Ÿ
+GROUP BY B.é¡žåˆ¥åç¨±
 
 ------------------------------------------------------------------
---- ¤¤¤å¥_­·¦U¿¤¥«¤H¼Æ
---- TIP SUBSTRING(Â^¨ú¥Ø¼Ð, ¶}©l¦ì¸m, µ²§ôÂ^¨ú¦ì¸m)
+--- ä¸­æ–‡åŒ—é¢¨å„ç¸£å¸‚äººæ•¸
+--- TIP SUBSTRING(æ“·å–ç›®æ¨™, é–‹å§‹ä½ç½®, çµæŸæ“·å–ä½ç½®)
 
-SELECT SUBSTRING(¦a§}, 1, 3) AS ¿¤¥«, 
-	COUNT(­û¤u½s¸¹) AS ¤H¼Æ
-FROM ­û¤u
-GROUP BY SUBSTRING(¦a§}, 1, 3)
+SELECT SUBSTRING(åœ°å€, 1, 3) AS ç¸£å¸‚, 
+	COUNT(å“¡å·¥ç·¨è™Ÿ) AS äººæ•¸
+FROM å“¡å·¥
+GROUP BY SUBSTRING(åœ°å€, 1, 3)
 
-SELECT SUBSTRING(¦a§}, 1, 3) AS ¿¤¥«, 
-	COUNT(*) AS ¤H¼Æ
-FROM ­û¤u
-GROUP BY SUBSTRING(¦a§}, 1, 3)
+SELECT SUBSTRING(åœ°å€, 1, 3) AS ç¸£å¸‚, 
+	COUNT(*) AS äººæ•¸
+FROM å“¡å·¥
+GROUP BY SUBSTRING(åœ°å€, 1, 3)
 
 
 
 ---------------------------------------------------------
--- ²Î­p
-SELECT ºÙ©I, COUNT(­û¤u½s¸¹) AS ¤H¼Æ
-FROM ­û¤u
-GROUP BY ºÙ©I;
--- ©ú²Ó
-SELECT ­û¤u½s¸¹, ©m¦W FROM ­û¤u
-WHERE ºÙ©I='¤p©j';
+-- çµ±è¨ˆ
+SELECT ç¨±å‘¼, COUNT(å“¡å·¥ç·¨è™Ÿ) AS äººæ•¸
+FROM å“¡å·¥
+GROUP BY ç¨±å‘¼;
+-- æ˜Žç´°
+SELECT å“¡å·¥ç·¨è™Ÿ, å§“å FROM å“¡å·¥
+WHERE ç¨±å‘¼='å°å§';
 
 
 
-SELECT ºÙ©I,Â¾ºÙ,COUNT(­û¤u½s¸¹) AS ¤H¼Æ	
-FROM ­û¤u
-GROUP BY ºÙ©I,Â¾ºÙ;
+SELECT ç¨±å‘¼,è·ç¨±,COUNT(å“¡å·¥ç·¨è™Ÿ) AS äººæ•¸	
+FROM å“¡å·¥
+GROUP BY ç¨±å‘¼,è·ç¨±;
 
 
-SELECT ºÙ©I,Â¾ºÙ,COUNT(­û¤u½s¸¹) AS ¤H¼Æ	
-FROM ­û¤u
-GROUP BY ºÙ©I,Â¾ºÙ
-HAVING COUNT(*) >= 3 --- HAVING : GROUP BY ¤§«áªº WHERE
+SELECT ç¨±å‘¼,è·ç¨±,COUNT(å“¡å·¥ç·¨è™Ÿ) AS äººæ•¸	
+FROM å“¡å·¥
+GROUP BY ç¨±å‘¼,è·ç¨±
+HAVING COUNT(*) >= 3 --- HAVING : GROUP BY ä¹‹å¾Œçš„ WHERE
 
 
-SELECT Â¾ºÙ,COUNT(­û¤u½s¸¹) AS ¤H¼Æ	
-FROM ­û¤u
-WHERE ºÙ©I='¤p©j'
-GROUP BY Â¾ºÙ
+SELECT è·ç¨±,COUNT(å“¡å·¥ç·¨è™Ÿ) AS äººæ•¸	
+FROM å“¡å·¥
+WHERE ç¨±å‘¼='å°å§'
+GROUP BY è·ç¨±
 HAVING COUNT(*)>=2
 
 
 
-SELECT Â¾ºÙ,COUNT(­û¤u½s¸¹) AS ¤H¼Æ	
-FROM ­û¤u
-WHERE ºÙ©I='¤p©j'
-GROUP BY Â¾ºÙ;
+SELECT è·ç¨±,COUNT(å“¡å·¥ç·¨è™Ÿ) AS äººæ•¸	
+FROM å“¡å·¥
+WHERE ç¨±å‘¼='å°å§'
+GROUP BY è·ç¨±;
 
---- SQL Server ¯S¦³
-SELECT Â¾ºÙ,COUNT(­û¤u½s¸¹) AS ¤H¼Æ	
-FROM ­û¤u
-WHERE ºÙ©I='¤p©j'
-GROUP BY ALL Â¾ºÙ;
+--- SQL Server ç‰¹æœ‰
+SELECT è·ç¨±,COUNT(å“¡å·¥ç·¨è™Ÿ) AS äººæ•¸	
+FROM å“¡å·¥
+WHERE ç¨±å‘¼='å°å§'
+GROUP BY ALL è·ç¨±;
 
-SELECT DISTINCT Â¾ºÙ FROM ­û¤u;  --  DISTINCT¥h­«½Æ
-SELECT Â¾ºÙ FROM ­û¤u WHERE ºÙ©I='¤p©j';
+SELECT DISTINCT è·ç¨± FROM å“¡å·¥;  --  DISTINCTåŽ»é‡è¤‡
+SELECT è·ç¨± FROM å“¡å·¥ WHERE ç¨±å‘¼='å°å§';
 
 
 ------------------------------------------------------------------
 
----- 2003 ¦~¾P°â¼Æ¶q TOP10
+---- 2003 å¹´éŠ·å”®æ•¸é‡ TOP10
+SELECT TOP(10) A.ç”¢å“, SUM(æ•¸é‡) AS éŠ·å”®æ•¸é‡
+FROM 
+	ç”¢å“è³‡æ–™ AS A JOIN è¨‚è²¨æ˜Žç´° AS B ON A.ç”¢å“ç·¨è™Ÿ=B.ç”¢å“ç·¨è™Ÿ
+	JOIN è¨‚è²¨ä¸»æª” AS C ON C.è¨‚å–®è™Ÿç¢¼=B.è¨‚å–®è™Ÿç¢¼
+WHERE C.è¨‚å–®æ—¥æœŸ > '2002-12-31' AND C.è¨‚å–®æ—¥æœŸ <= '2003-12-31'
+GROUP BY A.ç”¢å“ 
+ORDER BY SUM(æ•¸é‡) DESC
 
+---- 2004 å¹´æœ‰è²·éŽ "æµ·é®®é¡ž" çš„å®¢æˆ¶ï¼Œä¾ç…§è³¼è²·æ™‚é–“éžæ¸›æŽ’åº
+SELECT A.å…¬å¸åç¨±, A.é€£çµ¡äºº, SUM(æ•¸é‡) AS ç¸½æ•¸é‡, B.è¨‚å–®æ—¥æœŸ
 
----- 2004 ¦~¦³¶R¹L "®üÂAÃþ" ªº«È¤á¡A¨Ì·ÓÁÊ¶R®É¶¡»¼´î±Æ§Ç
+FROM 
+	å®¢æˆ¶ AS A JOIN è¨‚è²¨ä¸»æª” AS B ON A.å®¢æˆ¶ç·¨è™Ÿ=B.å®¢æˆ¶ç·¨è™Ÿ
+	JOIN è¨‚è²¨æ˜Žç´° AS C ON B.è¨‚å–®è™Ÿç¢¼=C.è¨‚å–®è™Ÿç¢¼
+	JOIN ç”¢å“è³‡æ–™ AS D ON C.ç”¢å“ç·¨è™Ÿ=D.ç”¢å“ç·¨è™Ÿ
+	JOIN ç”¢å“é¡žåˆ¥ AS E ON D.é¡žåˆ¥ç·¨è™Ÿ=E.é¡žåˆ¥ç·¨è™Ÿ
+WHERE 
+	B.è¨‚å–®æ—¥æœŸ > '2003-12-31' AND B.è¨‚å–®æ—¥æœŸ <= '2004-12-31'
+	AND E.é¡žåˆ¥ç·¨è™Ÿ=8
+
+GROUP BY A.å…¬å¸åç¨±, A.é€£çµ¡äºº, B.è¨‚å–®æ—¥æœŸ
+ORDER BY B.è¨‚å–®æ—¥æœŸ DESC
