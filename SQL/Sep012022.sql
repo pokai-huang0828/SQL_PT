@@ -219,15 +219,14 @@ ORDER BY 購買次數 DESC
 
 
 ---- 2004 年有買過 "海鮮類" 的客戶，依照購買時間遞減排序
-
-SELECT A.公司名稱, A.連絡人, SUM(數量) AS 總數量, B.訂單日期
+SELECT A.公司名稱, A.連絡人, SUM(數量) AS 購買總數, B.訂單日期
 FROM 
 	客戶 AS A JOIN 訂貨主檔 AS B ON A.客戶編號=B.客戶編號
 	JOIN 訂貨明細 AS C ON B.訂單號碼=C.訂單號碼
 	JOIN 產品資料 AS D ON C.產品編號=D.產品編號
 	JOIN 產品類別 AS E ON D.類別編號=E.類別編號
 WHERE 
-	B.訂單日期 > '2003-12-31' AND B.訂單日期 <= '2004-12-31'
+	B.訂單日期 >= '2004-1-1' AND B.訂單日期 < '2005-1-1'
 	AND E.類別編號=8
 
 GROUP BY A.公司名稱, A.連絡人, B.訂單日期
