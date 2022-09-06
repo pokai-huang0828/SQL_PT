@@ -199,13 +199,28 @@ SELECT TOP(10) A.產品, SUM(數量) AS 銷售數量
 FROM 
 	產品資料 AS A JOIN 訂貨明細 AS B ON A.產品編號=B.產品編號
 	JOIN 訂貨主檔 AS C ON C.訂單號碼=B.訂單號碼
-WHERE C.訂單日期 > '2002-12-31' AND C.訂單日期 <= '2003-12-31'
+WHERE C.訂單日期 >= '2003-1-1' AND C.訂單日期 < '2004-1-1'
 GROUP BY A.產品 
 ORDER BY SUM(數量) DESC
 
----- 2004 年有買過 "海鮮類" 的客戶，依照購買時間遞減排序
-SELECT A.公司名稱, A.連絡人, SUM(數量) AS 總數量, B.訂單日期
+--2003年 銷售數量 排名
+SELECT B.產品編號,SUM(B.數量) AS 銷售數量
+FROM 訂貨主檔 AS A JOIN 訂貨明細 AS B ON A.訂單號碼=B.訂單號碼
+WHERE A.訂單日期>='2003-1-1' AND A.訂單日期<'2004-1-1'
+GROUP BY B.產品編號
+ORDER BY 銷售數量 DESC
 
+--2003年 最多不同客戶購買 排名  (較受歡迎的產品)
+SELECT B.產品編號,COUNT(DISTINCT A.客戶編號) AS 購買次數
+FROM 訂貨主檔 AS A JOIN 訂貨明細 AS B ON A.訂單號碼=B.訂單號碼
+WHERE A.訂單日期>='2003-1-1' AND A.訂單日期<'2004-1-1'
+GROUP BY B.產品編號
+ORDER BY 購買次數 DESC
+
+
+---- 2004 年有買過 "海鮮類" 的客戶，依照購買時間遞減排序
+
+SELECT A.公司名稱, A.連絡人, SUM(數量) AS 總數量, B.訂單日期
 FROM 
 	客戶 AS A JOIN 訂貨主檔 AS B ON A.客戶編號=B.客戶編號
 	JOIN 訂貨明細 AS C ON B.訂單號碼=C.訂單號碼
