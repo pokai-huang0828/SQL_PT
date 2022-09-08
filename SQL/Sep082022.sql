@@ -111,9 +111,70 @@ SELECT 客戶編號, 訂單號碼
 FROM 訂貨主檔;
 
 
-
-
+--MySQL
+--SELECT 員工編號,姓名,稱呼,職稱,薪資 FROM 員工 ORDER BY 薪資 DESC LIMITS 10,10;
 
 --- SQL2012 略過前五筆
+SELECT 員工編號,姓名,稱呼,職稱,薪資
+FROM 員工
+ORDER BY 薪資 DESC OFFSET 5 ROWS;
 
---- 取接下來的五筆
+---  略過前五筆取接下來的五筆
+SELECT 員工編號,姓名,稱呼,職稱,薪資
+FROM 員工
+ORDER BY 薪資 DESC OFFSET 5 ROWS FETCH NEXT 5 ROWS ONLY;
+
+
+SELECT 員工編號,姓名,稱呼,職稱,薪資
+		, LAG(薪資) OVER(ORDER BY 薪資 ASC ) AS 後一位薪資
+		, 薪資 - LAG(薪資) OVER(ORDER BY 薪資 ASC ) AS 薪資差
+		, LAG(薪資, 2) OVER(ORDER BY 薪資 ASC ) AS 後二位薪資
+		, LAG(薪資, 2, 0) OVER(ORDER BY 薪資 ASC ) AS 後二位薪資
+FROM 員工 AS A
+
+SELECT 員工編號,姓名,稱呼,職稱,薪資
+		, LEAD(薪資, 1, 0) OVER(ORDER BY 薪資 ASC ) AS 後一位薪資
+		, 薪資 - LEAD(薪資) OVER(ORDER BY 薪資 ASC ) AS 薪資差
+		, LEAD(薪資, 2) OVER(ORDER BY 薪資 ASC ) AS 後二位薪資
+		, LEAD(薪資, 2, 0) OVER(ORDER BY 薪資 ASC ) AS 後二位薪資
+FROM 員工 AS A
+
+/*
+1. 2003年 各月營收金額(包含上月業績、月成長(Format百分比))
+
+2. 每位客戶的平均購買間隔天數
+
+https://docs.microsoft.com/zh-tw/sql/t-sql/functions/percentile-cont-transact-sql?view=sql-server-ver16
+3-1. 全體同仁的薪資中位數
+3-2. 整體產品的售價 25% 中位數 50% 75% 90%
+3-3. 各項產品的售價 25% 中位數 50% 75% 90%
+
+4-1. 每位員工在該職位群中的薪資百分位
+4-2. 每項產品在該類產品群中的價格百分位
+*/
+
+SELECT 稱呼, 職稱, COUNT(*) 人數
+FROM 員工
+GROUP BY 稱呼, 職稱
+
+--- 樞紐 查詢資料呈現 (源自於 GROUP BY)
+SELECT 稱呼, 職稱, COUNT(*) 人數
+FROM 員工
+GROUP BY 稱呼, 職稱
+
+--- |
+--- V
+
+SELECT [職稱], [小姐], [先生]
+FROM (	SELECT 稱呼, 職稱, COUNT(*) 人數
+		FROM 員工
+		GROUP BY 稱呼, 職稱 ) AS A
+PIVOT (SUM(人數) FOR 稱呼 IN([小姐], [先生])) AS P
+
+/*
+5-1. 各類產品(列)、各年(欄) 的 銷售金額 樞紐分析
+5-2. 各縣市(列)、各類產品(欄) 的 銷售數量 樞紐分析
+*/
+
+
+
