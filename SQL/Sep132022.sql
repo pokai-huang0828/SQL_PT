@@ -160,3 +160,92 @@ AS
 SELECT [職稱],[小姐],[先生]
 FROM T1 
 PIVOT (SUM(人數) FOR 稱呼 IN([小姐],[先生])) AS P;
+
+----------------------------------------------------------------------------
+
+/* CTE 的遞迴
+
+*/
+
+WITH EE(員工號,姓名,職稱,階層)
+AS
+(
+	SELECT 員工編號,姓名,職稱,1
+	FROM 員工
+	WHERE 主管 IS NULL
+	UNION ALL
+	SELECT A.員工編號,A.姓名,A.職稱,B.階層+1
+	FROM 員工 AS A JOIN EE AS B ON A.主管=B.員工號
+)
+SELECT * FROM EE;
+
+SELECT 員工編號,姓名,職稱,主管 FROM 員工;
+
+/* CTE 的遞迴
+1. 最多可遞迴32767次
+2. 預設只會執行100次
+3. 可利用 查詢提示 來調整遞迴次數
+*/
+WITH EE(員工號,姓名,職稱,階層)
+AS
+(
+	SELECT 員工編號,姓名,職稱,1
+	FROM 員工
+	WHERE 主管 IS NULL
+	UNION ALL
+	SELECT A.員工編號,A.姓名,A.職稱,B.階層+1
+	FROM 員工 AS A JOIN EE AS B ON A.主管=B.員工號
+)
+SELECT * FROM EE;
+SELECT * FROM EE OPTION (MAXRECURSION 1);
+
+
+--- 1. CTE 員工完整領導階層 (例：(2)陳季軒→(1)張謹雯→(4)林美麗)
+
+/*  2. 員工上班日出缺勤
+
+EmployeeID Date
+----------------------
+1001 2007/03/24
+1002 2007/03/24
+1003 2007/03/24
+1001 2007/03/25
+1002 2007/03/25
+1001 2007/03/26
+1003 2007/03/26
+
+從上面可以看出..員工王五在2007/03/25沒有刷卡.李四在2007/03/26沒有刷卡.
+所以我想得出如下的資訊:
+EmployeeID Date
+-----------------------
+1003 2007/03/25
+1002 2007/03/26
+
+-----------------------------------------------------------------------
+
+CREATE TABLE #員工
+(
+  員工編號 VARCHAR(4),
+  姓名 NVARCHAR(10)
+)
+go
+CREATE TABLE #出缺勤
+(
+  員工編號 VARCHAR(4),
+  上班日 DATE
+)
+go
+
+INSERT INTO #員工 VALUES('1001','張三')
+INSERT INTO #員工 VALUES('1002','李四')
+INSERT INTO #員工 VALUES('1003','王五')
+
+INSERT INTO #出缺勤 VALUES('1001','2007/03/24')
+INSERT INTO #出缺勤 VALUES('1002','2007/03/24')
+INSERT INTO #出缺勤 VALUES('1003','2007/03/24')
+INSERT INTO #出缺勤 VALUES('1001','2007/03/25')
+INSERT INTO #出缺勤 VALUES('1002','2007/03/25')
+INSERT INTO #出缺勤 VALUES('1001','2007/03/26')
+INSERT INTO #出缺勤 VALUES('1003','2007/03/26')
+
+*/
