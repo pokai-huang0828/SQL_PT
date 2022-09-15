@@ -71,3 +71,72 @@ PRINT @NAME
 
 
 SELECT 產品 FROM 產品資料;
+
+--------------------------------------------------------------------
+
+DECLARE @PRICE MONEY;
+SELECT @PRICE= 單價 FROM 產品資料 WHERE 產品編號=10;
+
+IF @PRICE <= 50 
+	PRINT '好便宜!' 
+ELSE 
+	PRINT '騙錢阿!';
+
+
+DECLARE @PRICE MONEY;
+SELECT @PRICE= 單價 FROM 產品資料 WHERE 產品編號=10;
+--- 利用BEGIN & END 代替括號
+IF @PRICE <= 50 
+	BEGIN
+		PRINT @PRICE;
+		PRINT '好便宜!'; 
+	END
+ELSE 
+	BEGIN
+		PRINT @PRICE;
+		PRINT '騙錢阿!';
+	END
+
+-------------------------------------------------------------
+SELECT * FROM sys.tables;
+SELECT COUNT(*) FROM sys.tables WHERE [name]='AAA';
+SELECT COUNT(*) FROM sys.tables WHERE [name]='員工';
+
+
+IF (SELECT COUNT(*) FROM sys.tables WHERE [name]='AAA')>0
+  TRUNCATE TABLE [AAA];
+ELSE
+  CREATE TABLE [AAA]
+  (
+	編號 INT,
+	資料 NVARCHAR(10)
+  )
+
+
+-----------------------------------------------------------------------
+
+--- 迴圈
+
+DECLARE @cc INT=1;
+WHILE @cc<=10
+  BEGIN
+	PRINT @cc;
+	SET @cc=@cc+1;
+  END
+
+
+DECLARE @maxId INT=(SELECT MAX(產品編號) FROM 產品資料);
+DECLARE @id INT=1;
+DECLARE @name NVARCHAR(10);
+DECLARE @price MONEY;
+
+WHILE @id<=@maxId
+  BEGIN
+	SELECT @name=產品,@price=單價 FROM 產品資料 WHERE 產品編號=@id;	
+	PRINT CONCAT(@id,', ',@name,', ',@price);
+	SET @id=@id+1;
+  END
+
+---------------------------------------------------------------
+
+
