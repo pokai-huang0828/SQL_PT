@@ -253,14 +253,41 @@ EXECUTE(@sql+@name);
 
 ---------------------------------------------------------------------
 
+---- CROSS APPLY (INNER JOIN)
+
+SELECT A.客戶編號, A.公司名稱, B.訂單號碼
+FROM 客戶 AS A JOIN 訂貨主檔 AS B ON A.客戶編號=B.客戶編號
 
 
+SELECT A.客戶編號, A.公司名稱, B.訂單號碼
+FROM 客戶 AS A CROSS APPLY( SELECT 訂單號碼 FROM 訂貨主檔 WHERE 客戶編號=A.客戶編號) AS B
 
 
+---- OUTER APPLY (LEFT JOIN)
+
+SELECT A.客戶編號, A.公司名稱, B.訂單號碼
+FROM 客戶 AS A LEFT JOIN 訂貨主檔 AS B ON A.客戶編號=B.客戶編號
 
 
+SELECT A.客戶編號, A.公司名稱, B.訂單號碼
+FROM 客戶 AS A OUTER APPLY( SELECT 訂單號碼 FROM 訂貨主檔 WHERE 客戶編號=A.客戶編號) AS B
 
 
+SELECT 類別名稱 FROM 產品類別
+SELECT STRING_AGG(類別名稱, ', ') FROM 產品類別
+SELECT STRING_AGG( QUOTENAME(類別名稱), ', ') FROM 產品類別
+
+DECLARE @aa NVARCHAR(100) = (SELECT STRING_AGG( QUOTENAME(類別名稱), ', ') FROM 產品類別)
+
+EXECUTE 'SELECT 縣市,'+@aa+' FROM AA PIVOT() ... IN('+@aa
 
 
+-----------------------------------------------------------------------------------------------
 
+
+1. CTE 員工完整領導階層 (例：(2)陳季軒→(1)張謹雯→(4)林美麗)
+
+2. 員工上班日出缺勤
+
+3-1. 列出每類產品購買最多的前5客戶
+3-2. 列出每位客戶購買最多的前3項產品
