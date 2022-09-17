@@ -15,3 +15,6 @@ ELSE
 	   庫存量 INT
 	)
   END
+
+DROP TABLE 北風產品
+SELECT * FROM 北風產品
