@@ -16,5 +16,11 @@ ELSE
 	)
   END
 
+
+
 DROP TABLE 北風產品
 SELECT * FROM 北風產品
+
+
+--- 控制台 -> 服務 -> DTC (Distributed Transaction Coordinator) Check Enable!
+--- 分散式交易協調器
