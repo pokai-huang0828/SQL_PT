@@ -128,5 +128,84 @@ GO
 EXEC 建一堆表;
 EXEC 刪一堆表;
 
--------------------------------------------------------------
+EXEC 建一堆表 WITH RECOMPILE;
+EXEC sp_recompile '建一堆表';
+
+/* 預存程序的重新編譯
+
+	1. 刪除，再重新撰寫建立
+	2. 再次執行該預存程序，並指定重新編譯
+		例如: EXEC 建一堆表 WITH RECOMPILE;
+	3. 標定該預存程序需要重新編譯，由下一位呼叫執行者來進行步驟2
+		例如: EXEC sp_recompile '建一堆表';例如: 
+		
+*/
+USE 練練
+--- 純質量函數 ( Scalar Function ) (指傳回單一值)
+CREATE FUNCTION 匠匠平均價() RETURNS MONEY
+AS 
+	BEGIN 
+		DECLARE @avgPrice MONEY;
+		SELECT @avgPrice = AVG(價錢) FROM 匠匠;
+		RETURN @avgPrice;
+	END
+GO
+
+SELECT GETDATE();
+SELECT dbo.匠匠平均價();
+
+SELECT * FROM 巨巨 WHERE 價錢>=dbo.匠匠平均價();
+SELECT *,dbo.匠匠平均價() AS 匠匠均價 FROM 巨巨;
+
+-------------------------------------------------------
+
+-- Table Value Function (TVF)
+--- Inline Table Value Function 
+CREATE FUNCTION 匠匠價格區間產品(@price1 MONEY=0,@price2 MONEY=100000) RETURNS TABLE
+AS
+  RETURN (
+	SELECT 產品編號,品名,價錢
+	FROM 匠匠 
+	WHERE 價錢>=@price1 AND 價錢<=@price2
+  )
+GO
+
+SELECT * FROM 匠匠價格區間產品(30,50);
+SELECT * FROM 匠匠價格區間產品(DEFAULT,DEFAULT);
+
+--- Muti-Statement Table Value Function
+
+CREATE FUNCTION 書籍負責同仁(@bookId INT)
+RETURNS @ee TABLE 
+(
+	員工編號 INT,
+	姓名 NVARCHAR(10),
+	職稱 NVARCHAR(10),
+	負責區域 NVARCHAR(10)
+)
+AS 
+	BEGIN 
+		DECLARE @eid INT;
+		SELECT @eid=負責人 FROM 書籍資料 WHERE 書籍編號=@bookId;
+
+		INSERT INTO @ee(員工編號, 姓名, 職稱, 負責區域)
+			SELECT 員工編號,姓名,職稱,負責區域 FROM 書籍員工資料 WHERE 員工編號=@eid;
+	INSERT INTO @ee(員工編號,姓名,職稱,負責區域)
+		SELECT 員工編號,姓名,職稱,負責區域 FROM 書籍員工資料 WHERE 主管編號=@eid;
+	RETURN;
+  END
+GO
+
+SELECT * FROM dbo.書籍負責同仁(6);
+SELECT * FROM dbo.書籍負責同仁(5);
+SELECT * FROM dbo.書籍負責同仁(4);
+
+
+
+
+
+
+
+
+
 
