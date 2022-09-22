@@ -1,0 +1,17 @@
+c:\users\study\documents\visual studio 2017\Projects\SQLNET\SQLNET\bin\Debug\SQLNET.dll
+c:\users\study\documents\visual studio 2017\Projects\SQLNET\SQLNET\bin\Debug\SQLNET.pdb
+c:\users\study\documents\visual studio 2017\Projects\SQLNET\SQLNET\obj\Debug\SQLNET.csprojResolveAssemblyReference.cache
+c:\users\study\documents\visual studio 2017\Projects\SQLNET\SQLNET\obj\Debug\SQLNET.dll
+c:\users\study\documents\visual studio 2017\Projects\SQLNET\SQLNET\obj\Debug\SQLNET.pdb
+C:\CC\SQLNET\SQLNET\bin\Debug\SQLNET.dll
+C:\CC\SQLNET\SQLNET\bin\Debug\SQLNET.pdb
+C:\CC\SQLNET\SQLNET\obj\Debug\SQLNET.csprojResolveAssemblyReference.cache
+C:\CC\SQLNET\SQLNET\obj\Debug\SQLNET.csproj.CoreCompileInputs.cache
+C:\CC\SQLNET\SQLNET\obj\Debug\SQLNET.dll
+C:\CC\SQLNET\SQLNET\obj\Debug\SQLNET.pdb
+C:\Users\admin\Documents\SQLNET\SQLNET\bin\Debug\SQLNET.dll
+C:\Users\admin\Documents\SQLNET\SQLNET\bin\Debug\SQLNET.pdb
+C:\Users\admin\Documents\SQLNET\SQLNET\obj\Debug\SQLNET.csprojAssemblyReference.cache
+C:\Users\admin\Documents\SQLNET\SQLNET\obj\Debug\SQLNET.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\SQLNET\SQLNET\obj\Debug\SQLNET.dll
+C:\Users\admin\Documents\SQLNET\SQLNET\obj\Debug\SQLNET.pdb

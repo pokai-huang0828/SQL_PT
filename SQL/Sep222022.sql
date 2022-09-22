@@ -124,3 +124,64 @@ SELECT * FROM dbo.客戶購買前三('BLAUS')
 
 SELECT A.客戶編號,A.公司名稱,B.產品,B.購買數量
 FROM 客戶 AS A CROSS APPLY dbo.客戶購買前三(A.客戶編號) AS B;
+
+
+-----------------------------------------------------------------
+
+
+
+EXEC sp_configure 'show advanced options', 1;
+RECONFIGURE;
+EXEC sp_configure 'clr strict security', 0;
+RECONFIGURE;
+
+
+CREATE ASSEMBLY [NET組件]
+FROM 'C:\SQLData\SQLNET.dll'
+WITH PERMISSION_SET=SAFE;		-- SAFE | EXTERNAL | UNSAFE
+GO
+
+CREATE FUNCTION 自訂NET分組(@value BIGINT,@start BIGINT,@end BIGINT,@range BIGINT) RETURNS NVARCHAR(1024)
+AS
+EXTERNAL NAME [NET組件].[SQLNET.MyNET].[MyPartition];
+GO
+
+
+EXEC sp_configure 'clr enable', 1;
+RECONFIGURE;
+
+SELECT dbo.自訂NET分組(薪資,0,100000000,10000) AS 薪資等級,COUNT(*) AS 人數
+FROM 員工
+GROUP BY dbo.自訂NET分組(薪資,0,100000000,10000);
+
+
+
+---------------------------------------------------------------------------------
+
+CREATE FUNCTION 繁轉簡(@value NVARCHAR(1024)) RETURNS NVARCHAR(1024)
+AS
+EXTERNAL NAME [NET組件].[SQLNET.MyNET].[T2S];
+GO
+CREATE FUNCTION 簡轉繁(@value NVARCHAR(1024)) RETURNS NVARCHAR(1024)
+AS
+EXTERNAL NAME [NET組件].[SQLNET.MyNET].[S2T];
+GO
+
+
+SELECT 客戶編號
+	,dbo.繁轉簡(公司名稱) AS 公司名稱
+	,dbo.繁轉簡(連絡人) AS 連絡人
+	,dbo.繁轉簡(連絡人職稱) AS 連絡人職稱
+	,dbo.繁轉簡(地址) AS 地址
+INTO 簡體版客戶
+FROM 客戶
+
+SELECT * FROM 簡體版客戶;
+
+SELECT 客戶編號
+	,dbo.簡轉繁(公司名稱) AS 公司名稱
+	,dbo.簡轉繁(連絡人) AS 連絡人
+	,dbo.簡轉繁(連絡人職稱) AS 連絡人職稱
+	,dbo.簡轉繁(地址) AS 地址
+FROM 簡體版客戶;
+
