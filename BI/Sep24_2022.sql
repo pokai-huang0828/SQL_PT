@@ -157,3 +157,6 @@ GO
 
 DROP TABLE 匯入英文客戶
 SELECT * FROM 匯入英文客戶
+
+SELECT 員工編號, 姓名, 稱呼, 職稱, 雇用日期, 薪資
+FROM 員工
