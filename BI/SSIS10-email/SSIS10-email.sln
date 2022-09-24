@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SSIS10-email", "SSIS10-email\SSIS10-email.dtproj", "{47854811-00F1-411E-9A28-0C439FF1B6C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47854811-00F1-411E-9A28-0C439FF1B6C8}.Development|Default.ActiveCfg = Development
+		{47854811-00F1-411E-9A28-0C439FF1B6C8}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EB01A16-E974-4586-9189-E5FF86618B8F}
+	EndGlobalSection
+EndGlobal

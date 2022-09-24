@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/24/2022 11:22:55 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MB-201-11"
+  DTS:CreatorName="MB-201-11\MB-201"
+  DTS:DTSID="{4F8C7984-8195-4277-8BC8-83147C960E22}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.694.0"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{C39353AD-DDAE-4147-999F-8CC8AC3059BD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gmail SMTP 連接]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{7304EA49-D3E2-43C4-BBB6-FA19D7439297}"
+      DTS:ObjectName="Gmail SMTP 連接">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::GmailSMTP_ConnectionString1]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=smtp.gmail.com;UseWindowsAuthentication=False;EnableSsl=True;"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP 連接管理員]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{97366AC6-648E-4C87-8119-2AA2C85991D8}"
+      DTS:ObjectName="SMTP 連接管理員">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=ms33.hinet.net;UseWindowsAuthentication=False;EnableSsl=False;"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{74C86368-0486-4C3D-8149-91B9EB8E7C44}"
+      DTS:ObjectName="GmailSMTP_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SmtpServer=smtp.gmail.com; port=587; UseWindowsAuthentication=False; EnableSsl=True; user=kenny0963676060@gmail.com; password=kenny2518867;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{924D8677-F9A0-4048-9F65-7813C6ABFF32}"
+      DTS:ObjectName="GmailSMTP_ConnectionString1">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SmtpServer=smtp.gmail.com;port=587;UseWindowsAuthentication=False;EnableSsl=True;user=kenny0963676060@gmail.com;password=kenny2518867;</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\傳送郵件工作"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="傳送郵件工作"
+      DTS:DTSID="{1AB9D85B-C905-4E8D-BCDD-966274D438D8}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="傳送郵件工作"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{97366AC6-648E-4C87-8119-2AA2C85991D8}"
+          SendMailTask:From="kenny0963676060@gmail.com"
+          SendMailTask:To="kenny0963676060@gmail.com"
+          SendMailTask:Subject="SSIS測試信"
+          SendMailTask:MessageSource="測試信，測試信，測試信，測試信，測試信!" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\傳送郵件工作"
+          TopLeft="289.999988476436,103.071423305541" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
