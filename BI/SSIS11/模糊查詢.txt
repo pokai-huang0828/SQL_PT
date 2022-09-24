@@ -1,38 +1,4 @@
 
-TRUNCATE TABLE [北風產品2];
-
-CREATE TABLE [dbo].[北風產品2](
-	[產品編號] [int] NULL,
-	[產品名稱] [nvarchar](20) NULL,
-	[供應商編號] [int] NULL,
-	[類別編號] [int] NULL,
-	[單位數量] [nvarchar](500) NULL,
-	[單價] [money] NULL,
-	[庫存量] [int] NULL
-) ON [PRIMARY]
-GO
-
-SELECT * FROM [北風產品2] order by 產品編號
-DROP TABLE [北風產品2]
-
-------------------------------------------------------
-
-SELECT 客戶編號, 公司名稱, 連絡人, 連絡人職稱, 電話, 'kenny0963676060@gmail.com' AS 電子郵件
-INTO 練習.dbo.EDM
-FROM 中文北風.dbo.客戶
-WHERE 地址 LIKE '桃園%'
-
-
---信件底稿
-/*
-@[User::CID] +"  "+ @[User::CCompanyName] +"\n"+
-"親愛的 "+ @[User::CPerson] +" "+ @[User::CPersonJob]  +" 您好：\n"+
-"本公司跳樓大拍賣！\n"+
-"請快來搶購！\n\n\n巨匠公司 敬上"
-*/
-
-
-
 CREATE TABLE 城市參考表
 (
     城市 NVARCHAR(10),
@@ -118,42 +84,6 @@ CREATE TABLE 匯入客戶
 	傳真電話 [nvarchar](24) NULL
 )
 
-
 DROP TABLE 匯入客戶
+
 SELECT * FROM 匯入客戶
-
-
-----------------------------------------------------
-
-CREATE TABLE 匯入英文客戶
-(
-    客戶編號 INT,
-    姓名 NCHAR(50),
-    居住城市 NVARCHAR(50),
-    原始城市 NVARCHAR(50),
-    相似度 NVARCHAR(50)
-)
-GO
-
-CREATE TABLE 英文城市參考表
-(
-    城市 NVARCHAR(50),
-    目標城市 NVARCHAR(50)
-)
-GO
-
-
-INSERT INTO 英文城市參考表 VALUES('New York','New York')
-INSERT INTO 英文城市參考表 VALUES('Los Angeles','Los Angeles')
-INSERT INTO 英文城市參考表 VALUES('New Orleans','New Orleans')
-INSERT INTO 英文城市參考表 VALUES('Chicago','Chicago')
-INSERT INTO 英文城市參考表 VALUES('New Jersey','New Jersey')
-INSERT INTO 英文城市參考表 VALUES('Seattle','Seattle')
-
-INSERT INTO 英文城市參考表 VALUES('NY','New York')
-INSERT INTO 英文城市參考表 VALUES('LA','Los Angeles')
-INSERT INTO 英文城市參考表 VALUES('CHI','Chicago')
-GO
-
-DROP TABLE 匯入英文客戶
-SELECT * FROM 匯入英文客戶

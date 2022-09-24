@@ -1,0 +1,2467 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/24/2022 1:45:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MB-201-11"
+  DTS:CreatorName="MB-201-11\MB-201"
+  DTS:DTSID="{14E16797-60A0-404D-BE6D-D2CCF7638996}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.694.0"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{8DFA32C0-01EA-4166-B00C-940378A60351}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{07BCAD9E-D198-4CF5-BB71-C639F42C5CAC}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\SQLData\SQL_PT\BI\SSIS11\英文模糊查詢客戶.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 0"
+              DTS:DTSID="{3E0B5098-5DF1-4370-8859-792F781B782A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{24F92190-199D-4CAB-A773-EA661E7723AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 2"
+              DTS:DTSID="{C2332FA8-D297-4C0C-8B38-D114DD66BFB7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.練習]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2068C8DC-FE14-4885-BD09-77A1824291B2}"
+      DTS:ObjectName="localhost.練習">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=練習;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{2068C8DC-FE14-4885-BD09-77A1824291B2}localhost.練習;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[北風客戶文字檔連接]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{69DA19B9-4358-411A-BE1A-56D56E24E18E}"
+      DTS:ObjectName="北風客戶文字檔連接">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\SQLData\SQL_PT\BI\SSIS11\模糊查詢客戶資料.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 0"
+              DTS:DTSID="{42FCD2E7-DB59-4642-9DED-BCFB38DBED9A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 1"
+              DTS:DTSID="{217439F5-4974-49AB-971C-CA30B047E914}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 2"
+              DTS:DTSID="{C199B56B-6877-4C6B-A21F-E64DD7DC8B9D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 3"
+              DTS:DTSID="{EF0AA167-E003-423E-86B2-37AE0414211F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 4"
+              DTS:DTSID="{35AED70C-673A-4D71-A070-B11528FEBD64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 5"
+              DTS:DTSID="{474CCE6A-9744-437C-9B91-2EA65AE76B67}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 6"
+              DTS:DTSID="{9E76EFD3-40CC-48D2-93B4-B389172D3462}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 7"
+              DTS:DTSID="{F1ADF6EB-EE5A-454B-B9A4-2292687BA54E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="資料行 8"
+              DTS:DTSID="{243B28A2-A1E8-4263-B943-B24FF5662AF1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\資料流程工作"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="資料流程工作"
+      DTS:Disabled="True"
+      DTS:DTSID="{6199A7E6-8991-4571-8BD0-11D943D0DF0C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="資料流程工作"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\資料流程工作\OLE DB 目的地"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="OLE DB 目的地"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[匯入客戶]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作\OLE DB 目的地.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.練習]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.練習]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 0]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 0"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[客戶編號]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 0]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 1"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[公司名稱]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 1]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 2"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[連絡人]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 2]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 3]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 3"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[連絡人職稱]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 3]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 4]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 4"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[地址]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 4]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 8]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 8"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[傳真電話]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 8]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 7]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 7"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[電話]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 7]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[_Similarity]"
+                      cachedDataType="r4"
+                      cachedName="_Similarity"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[相似度]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[_Similarity]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 5]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 5"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[城市]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 5]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[目標城市]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="目標城市"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[目標城市]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[目標城市]" />
+                    <inputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[資料行 6]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 6"
+                      externalMetadataColumnId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[郵遞區號]"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 6]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[客戶編號]"
+                      dataType="wstr"
+                      length="5"
+                      name="客戶編號" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[公司名稱]"
+                      dataType="wstr"
+                      length="40"
+                      name="公司名稱" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[連絡人]"
+                      dataType="wstr"
+                      length="30"
+                      name="連絡人" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[連絡人職稱]"
+                      dataType="wstr"
+                      length="30"
+                      name="連絡人職稱" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[地址]"
+                      dataType="wstr"
+                      length="60"
+                      name="地址" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[城市]"
+                      dataType="wstr"
+                      length="15"
+                      name="城市" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[目標城市]"
+                      dataType="wstr"
+                      length="15"
+                      name="目標城市" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[相似度]"
+                      dataType="wstr"
+                      length="15"
+                      name="相似度" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[郵遞區號]"
+                      dataType="wstr"
+                      length="10"
+                      name="郵遞區號" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[電話]"
+                      dataType="wstr"
+                      length="24"
+                      name="電話" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[傳真電話]"
+                      dataType="wstr"
+                      length="24"
+                      name="傳真電話" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\一般檔案來源"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="一般檔案來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案來源"
+              localeId="1028"
+              name="一般檔案來源"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定零長度資料行是否當成 Null 處理。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含檔案名稱之輸出資料行的名稱。如果未指定名稱，將不會產生包含檔案名稱的輸出資料行。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作\一般檔案來源.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[北風客戶文字檔連接]"
+                  connectionManagerRefId="Package.ConnectionManagers[北風客戶文字檔連接]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出]"
+                  name="一般檔案來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      length="50"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]"
+                      name="資料行 0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      length="50"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]"
+                      name="資料行 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      length="50"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]"
+                      name="資料行 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 3]"
+                      length="50"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]"
+                      name="資料行 3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 4]"
+                      length="50"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]"
+                      name="資料行 4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 5]"
+                      length="50"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]"
+                      name="資料行 5"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 6]"
+                      length="50"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]"
+                      name="資料行 6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 7]"
+                      length="50"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]"
+                      name="資料行 7"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 8]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 8]"
+                      length="50"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 8]"
+                      name="資料行 8"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 0" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 1" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 2" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 3]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 3" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 4]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 4" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 5]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 5" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 6]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 6" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 7]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 7" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 8]"
+                      dataType="wstr"
+                      length="50"
+                      name="資料行 8" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="一般檔案來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      dataType="nText"
+                      description="一般檔案來源錯誤輸出資料行"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      name="一般檔案來源錯誤輸出資料行" />
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作\模糊查閱"
+              componentClassID="Microsoft.FuzzyLookup"
+              contactInfo="模糊查閱;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;5"
+              description="執行資料清除工作，例如資料標準化、更正資料及提供遺漏的值。使用模糊比對從參考資料表傳回一個或多個接近的符合項目。例如，依地址查閱客戶資料，即使輸入的地址資料與參考地址資料並非完全相符，也可查閱。"
+              name="模糊查閱"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="指出要重複使用現有的模糊相符索引資料表，或建立新資料表。新索引資料表可以是暫存的、保存的，或保存與維護的。"
+                  name="MatchIndexOptions"
+                  typeConverter="tcMatchIndexOptions">1</property>
+                <property
+                  dataType="System.Null"
+                  description="指定此模糊查閱轉換執行個體可以使用的最大記憶體數量 (MB)。若是指定 0，轉換會根據其需求與可用的系統記憶體，來動態調整其記憶體使用量。"
+                  expressionType="Notify"
+                  name="MaxMemoryUsage" />
+                <property
+                  dataType="System.Null"
+                  description="指定要重複使用的模糊相符索引資料表的名稱，或將要寫入新產生之模糊相符索引資料表的資料表名稱。"
+                  name="MatchIndexName"
+                  state="escaped" />
+                <property
+                  dataType="System.String"
+                  description="指定要比對內送記錄的參考資料表或檢視的名稱。"
+                  name="ReferenceTableName"
+                  state="escaped">_x005B_dbo_x005D_._x005B_城市參考表_x005D_</property>
+                <property
+                  dataType="System.Int32"
+                  description="指出轉換若配置成產生一個新資料表和一個與現有名稱相同的資料表，則是否要卸除現有的模糊相符索引資料表。"
+                  name="DropExistingMatchIndex">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="是否應為模糊相符索引建構和後續的相符製作參考資料表的副本。強烈建議一律製作副本，否則參考資料表的內容若在封裝執行時變更 (或若是重複使用模糊相符索引，可能在前後執行之間) 產生無法預料的輸出。如果此屬性設定為 False，參考資料表必須同時在整數識別欄位上建立叢集索引。"
+                  name="CopyReferenceTable">1</property>
+                <property
+                  dataType="System.UInt32"
+                  description="指定要為輸入記錄傳回的模糊相符的最大數目。"
+                  name="MaxOutputMatchesPerInput">1</property>
+                <property
+                  dataType="System.Single"
+                  description="指定轉換要傳回相符結果需要的最小相似度分數。"
+                  name="MinSimilarity">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定空白和標點符號字元集，這些字元用於將模糊相符欄位分隔為模糊查閱比對和評分所使用的字。"
+                  name="Delimiters"
+                  state="escaped">_x0020__x0009__x000D__x000A__x002C_._x003B_:-_x0022__x0027__x0026__x002F__x005C__x0040__x0021__x003F__x0028__x0029__x003C__x003E__x005B__x005D__x007B__x007D__x007C__x0023__x002A__x005E__x0025_</property>
+                <property
+                  dataType="System.String"
+                  description="指定參考資料表的 XML 格式中繼資料。"
+                  name="ReferenceMetadataXml"
+                  state="escaped">_x003C_referenceMetadata_x003E__x003C_referenceColumns_x003E__x003C_referenceColumn_x0020_name_x003D__x0022_城市_x0022__x0020_dataType_x003D__x0022_DT_WSTR_x0022__x0020_length_x003D__x0022_10_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_目標城市_x0022__x0020_dataType_x003D__x0022_DT_WSTR_x0022__x0020_length_x003D__x0022_10_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C__x002F_referenceColumns_x003E__x003C__x002F_referenceMetadata_x003E__x000D__x000A_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="若為 True，每個輸入記錄都會直接與參考資料表中的每個記錄比較。這可以產生好一點的結果，但是除非參考資料表中的記錄數目很小，否則會很慢。請注意，若啟用此選項，整個參考資料表都會載入主記憶體中。此選項主要是供偵測使用，使用時請小心。"
+                  name="Exhaustive">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="若為 True，模糊查閱會在執行開始之前，將容錯索引與參考資料表部分載入主記憶體。如果有許多輸入資料列要處理，這可以大幅增強效能。"
+                  name="WarmCaches">true</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作\模糊查閱.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.練習]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.練習]"
+                  description="模糊查閱參考資料表所在，以及將儲存及存取模糊相符索引資料表的 Microsoft SQL Server 連接和資料庫。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入]"
+                  name="模糊查閱輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入].Columns[資料行 0]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 0"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入].Columns[資料行 1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 1"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入].Columns[資料行 2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 2"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入].Columns[資料行 3]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 3"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入].Columns[資料行 4]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 4"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入].Columns[資料行 5]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 5"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped">城市</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入].Columns[資料行 6]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 6"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入].Columns[資料行 7]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 7"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入].Columns[資料行 8]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="資料行 8"
+                      lineageId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 8]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出]"
+                  name="模糊查閱輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 0]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 0]"
+                      name="資料行 0">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 1]"
+                      name="資料行 1">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 2]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 2]"
+                      name="資料行 2">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 3]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 3]"
+                      name="資料行 3">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 3]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 4]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 4]"
+                      name="資料行 4">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 4]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 5]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 5]"
+                      name="資料行 5">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 6]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 6]"
+                      name="資料行 6">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 6]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 7]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 7]"
+                      name="資料行 7">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 7]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 8]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[資料行 8]"
+                      name="資料行 8">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 8]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[目標城市]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[目標城市]"
+                      name="目標城市">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped">目標城市</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Null"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[_Similarity]"
+                      dataType="r4"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[_Similarity]"
+                      name="_Similarity">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[_Confidence]"
+                      dataType="r4"
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[_Confidence]"
+                      name="_Confidence">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">2</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[_Similarity_資料行 5]"
+                      dataType="r4"
+                      description="Column-level similarity score for fuzzy join on column &quot;資料行 5&quot;."
+                      lineageId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出].Columns[_Similarity_資料行 5]"
+                      name="_Similarity_資料行 5">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 5]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">3</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\資料流程工作.Paths[一般檔案來源輸出]"
+              endId="Package\資料流程工作\模糊查閱.Inputs[模糊查閱輸入]"
+              name="一般檔案來源輸出"
+              startId="Package\資料流程工作\一般檔案來源.Outputs[一般檔案來源輸出]" />
+            <path
+              refId="Package\資料流程工作.Paths[模糊查閱輸出]"
+              endId="Package\資料流程工作\OLE DB 目的地.Inputs[OLE DB 目的地輸入]"
+              name="模糊查閱輸出"
+              startId="Package\資料流程工作\模糊查閱.Outputs[模糊查閱輸出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\資料流程工作 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="資料流程工作"
+      DTS:DTSID="{14C73EA3-F6E4-49B1-BD53-9C993AC80258}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="資料流程工作 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\資料流程工作 1\OLE DB 目的地"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="OLE DB 目的地"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[匯入英文客戶]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作 1\OLE DB 目的地.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.練習]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.練習]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[姓名]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="姓名"
+                      externalMetadataColumnId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[姓名]"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[姓名]" />
+                    <inputColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="編號"
+                      externalMetadataColumnId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[客戶編號]"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[編號]" />
+                    <inputColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[原城市]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="原城市"
+                      externalMetadataColumnId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[原始城市]"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[原城市]" />
+                    <inputColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[目標城市]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="目標城市"
+                      externalMetadataColumnId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[居住城市]"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[目標城市]" />
+                    <inputColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].Columns[_Similarity]"
+                      cachedDataType="r4"
+                      cachedName="_Similarity"
+                      externalMetadataColumnId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[相似度]"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[_Similarity]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[客戶編號]"
+                      dataType="i4"
+                      name="客戶編號" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[姓名]"
+                      dataType="wstr"
+                      length="50"
+                      name="姓名" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[居住城市]"
+                      dataType="wstr"
+                      length="50"
+                      name="居住城市" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[原始城市]"
+                      dataType="wstr"
+                      length="50"
+                      name="原始城市" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入].ExternalColumns[相似度]"
+                      dataType="wstr"
+                      length="50"
+                      name="相似度" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作 1\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作 1\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作 1\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作 1\OLE DB 目的地.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作 1\一般檔案來源"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="一般檔案來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="一般檔案來源"
+              localeId="1028"
+              name="一般檔案來源"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定零長度資料行是否當成 Null 處理。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含檔案名稱之輸出資料行的名稱。如果未指定名稱，將不會產生包含檔案名稱的輸出資料行。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作 1\一般檔案來源.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出]"
+                  name="一般檔案來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      length="50"
+                      lineageId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]"
+                      name="資料行 0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      length="50"
+                      lineageId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]"
+                      name="資料行 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      length="50"
+                      lineageId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]"
+                      name="資料行 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料是否為二進位格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 0]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 0" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 1]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 1" />
+                    <externalMetadataColumn
+                      refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].ExternalColumns[資料行 2]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="資料行 2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="一般檔案來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      codePage="950"
+                      dataType="text"
+                      description="一般檔案來源錯誤輸出資料行"
+                      lineageId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[一般檔案來源錯誤輸出資料行]"
+                      name="一般檔案來源錯誤輸出資料行" />
+                    <outputColumn
+                      refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作 1\模糊查閱"
+              componentClassID="Microsoft.FuzzyLookup"
+              contactInfo="模糊查閱;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;5"
+              description="執行資料清除工作，例如資料標準化、更正資料及提供遺漏的值。使用模糊比對從參考資料表傳回一個或多個接近的符合項目。例如，依地址查閱客戶資料，即使輸入的地址資料與參考地址資料並非完全相符，也可查閱。"
+              name="模糊查閱"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="指出要重複使用現有的模糊相符索引資料表，或建立新資料表。新索引資料表可以是暫存的、保存的，或保存與維護的。"
+                  name="MatchIndexOptions"
+                  typeConverter="tcMatchIndexOptions">1</property>
+                <property
+                  dataType="System.Null"
+                  description="指定此模糊查閱轉換執行個體可以使用的最大記憶體數量 (MB)。若是指定 0，轉換會根據其需求與可用的系統記憶體，來動態調整其記憶體使用量。"
+                  expressionType="Notify"
+                  name="MaxMemoryUsage" />
+                <property
+                  dataType="System.Null"
+                  description="指定要重複使用的模糊相符索引資料表的名稱，或將要寫入新產生之模糊相符索引資料表的資料表名稱。"
+                  name="MatchIndexName"
+                  state="escaped" />
+                <property
+                  dataType="System.String"
+                  description="指定要比對內送記錄的參考資料表或檢視的名稱。"
+                  name="ReferenceTableName"
+                  state="escaped">_x005B_dbo_x005D_._x005B_英文城市參考表_x005D_</property>
+                <property
+                  dataType="System.Int32"
+                  description="指出轉換若配置成產生一個新資料表和一個與現有名稱相同的資料表，則是否要卸除現有的模糊相符索引資料表。"
+                  name="DropExistingMatchIndex">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="是否應為模糊相符索引建構和後續的相符製作參考資料表的副本。強烈建議一律製作副本，否則參考資料表的內容若在封裝執行時變更 (或若是重複使用模糊相符索引，可能在前後執行之間) 產生無法預料的輸出。如果此屬性設定為 False，參考資料表必須同時在整數識別欄位上建立叢集索引。"
+                  name="CopyReferenceTable">1</property>
+                <property
+                  dataType="System.UInt32"
+                  description="指定要為輸入記錄傳回的模糊相符的最大數目。"
+                  name="MaxOutputMatchesPerInput">1</property>
+                <property
+                  dataType="System.Single"
+                  description="指定轉換要傳回相符結果需要的最小相似度分數。"
+                  name="MinSimilarity">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定空白和標點符號字元集，這些字元用於將模糊相符欄位分隔為模糊查閱比對和評分所使用的字。"
+                  name="Delimiters"
+                  state="escaped">_x0020__x0009__x000D__x000A__x002C_._x003B_:-_x0022__x0027__x0026__x002F__x005C__x0040__x0021__x003F__x0028__x0029__x003C__x003E__x005B__x005D__x007B__x007D__x007C__x0023__x002A__x005E__x0025_</property>
+                <property
+                  dataType="System.String"
+                  description="指定參考資料表的 XML 格式中繼資料。"
+                  name="ReferenceMetadataXml"
+                  state="escaped">_x003C_referenceMetadata_x003E__x003C_referenceColumns_x003E__x003C_referenceColumn_x0020_name_x003D__x0022_城市_x0022__x0020_dataType_x003D__x0022_DT_WSTR_x0022__x0020_length_x003D__x0022_50_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_目標城市_x0022__x0020_dataType_x003D__x0022_DT_WSTR_x0022__x0020_length_x003D__x0022_50_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C__x002F_referenceColumns_x003E__x003C__x002F_referenceMetadata_x003E__x000D__x000A_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="若為 True，每個輸入記錄都會直接與參考資料表中的每個記錄比較。這可以產生好一點的結果，但是除非參考資料表中的記錄數目很小，否則會很慢。請注意，若啟用此選項，整個參考資料表都會載入主記憶體中。此選項主要是供偵測使用，使用時請小心。"
+                  name="Exhaustive">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="若為 True，模糊查閱會在執行開始之前，將容錯索引與參考資料表部分載入主記憶體。如果有許多輸入資料列要處理，這可以大幅增強效能。"
+                  name="WarmCaches">true</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\資料流程工作 1\模糊查閱.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.練習]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.練習]"
+                  description="模糊查閱參考資料表所在，以及將儲存及存取模糊相符索引資料表的 Microsoft SQL Server 連接和資料庫。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\資料流程工作 1\模糊查閱.Inputs[模糊查閱輸入]"
+                  name="模糊查閱輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作 1\模糊查閱.Inputs[模糊查閱輸入].Columns[編號]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="編號"
+                      lineageId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[編號]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作 1\模糊查閱.Inputs[模糊查閱輸入].Columns[姓名]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="姓名"
+                      lineageId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[姓名]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\資料流程工作 1\模糊查閱.Inputs[模糊查閱輸入].Columns[原城市]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="原城市"
+                      lineageId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[原城市]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="輸入資料行應比對的參考資料表資料行的名稱。"
+                          name="JoinToReferenceColumn"
+                          state="escaped">城市</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定相符是部分或完全相符。"
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="指定此特定聯結資料行中的值，其輸入和模糊相符記錄之間所需的最小文字相似度。它必須是介於 0.0 和 1.0 之間的浮點值。"
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定字元資料的比較選項。選項是 FoldString 函數支援的選項。"
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="比較兩個字串是否相等時應使用的 FoldString 的旗標。"
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出]"
+                  name="模糊查閱輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[編號]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[編號]"
+                      name="編號">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[編號]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[姓名]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[姓名]"
+                      name="姓名">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[姓名]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[原城市]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[原城市]"
+                      name="原城市">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[原城市]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[目標城市]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[目標城市]"
+                      name="目標城市">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped">目標城市</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Null"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID" />
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[_Similarity]"
+                      dataType="r4"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[_Similarity]"
+                      name="_Similarity">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[_Confidence]"
+                      dataType="r4"
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[_Confidence]"
+                      name="_Confidence">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">2</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[_Similarity_原城市]"
+                      dataType="r4"
+                      description="Column-level similarity score for fuzzy join on column &quot;城市&quot;."
+                      lineageId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出].Columns[_Similarity_原城市]"
+                      name="_Similarity_原城市">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="指定複製到每個相符結果輸出的參考資料表資料行。"
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定針對每個相符複製到此輸出資料行之來源輸入資料行的譜系識別碼。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[原城市]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定資料行是用於指示信心或相似度。"
+                          name="ColumnType"
+                          typeConverter="tcColumnType">3</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\資料流程工作 1\資料轉換"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="資料轉換;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="資料轉換"
+              name="資料轉換"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\資料流程工作 1\資料轉換.Inputs[資料轉換輸入]"
+                  name="資料轉換輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\資料流程工作 1\資料轉換.Inputs[資料轉換輸入].Columns[資料行 0]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 0"
+                      lineageId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]" />
+                    <inputColumn
+                      refId="Package\資料流程工作 1\資料轉換.Inputs[資料轉換輸入].Columns[資料行 1]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 1"
+                      lineageId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]" />
+                    <inputColumn
+                      refId="Package\資料流程工作 1\資料轉換.Inputs[資料轉換輸入].Columns[資料行 2]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="資料行 2"
+                      lineageId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出]"
+                  exclusionGroup="1"
+                  name="資料轉換輸出"
+                  synchronousInputId="Package\資料流程工作 1\資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[編號]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[編號]"
+                      name="編號"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 0]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[姓名]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[姓名]"
+                      name="姓名"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[原城市]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出].Columns[原城市]"
+                      name="原城市"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出].Columns[資料行 2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="資料轉換錯誤輸出"
+                  synchronousInputId="Package\資料流程工作 1\資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\資料流程工作 1.Paths[一般檔案來源輸出]"
+              endId="Package\資料流程工作 1\資料轉換.Inputs[資料轉換輸入]"
+              name="一般檔案來源輸出"
+              startId="Package\資料流程工作 1\一般檔案來源.Outputs[一般檔案來源輸出]" />
+            <path
+              refId="Package\資料流程工作 1.Paths[模糊查閱輸出]"
+              endId="Package\資料流程工作 1\OLE DB 目的地.Inputs[OLE DB 目的地輸入]"
+              name="模糊查閱輸出"
+              startId="Package\資料流程工作 1\模糊查閱.Outputs[模糊查閱輸出]" />
+            <path
+              refId="Package\資料流程工作 1.Paths[資料轉換輸出]"
+              endId="Package\資料流程工作 1\模糊查閱.Inputs[模糊查閱輸入]"
+              name="資料轉換輸出"
+              startId="Package\資料流程工作 1\資料轉換.Outputs[資料轉換輸出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\資料流程工作"
+          TopLeft="39.9999984105429,42.714283532026" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\資料流程工作 1"
+          TopLeft="234.16665736172,46.42856905655" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\資料流程工作">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\資料流程工作\一般檔案來源"
+          TopLeft="39.1666651103232,26.928570052799" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\資料流程工作\模糊查閱"
+          TopLeft="52.4999979138375,125.357136452685" />
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[一般檔案來源輸出]"
+          TopLeft="115.33333151208,68.928570052799">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.4285663998859"
+              Start="0,0"
+              End="0,48.9285663998859">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.9285663998859" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162,42"
+          Id="Package\資料流程工作\OLE DB 目的地"
+          TopLeft="34.999998609225,226.571416995964" />
+        <EdgeLayout
+          Id="Package\資料流程工作.Paths[模糊查閱輸出]"
+          TopLeft="115.999998261531,167.357136452685">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.214280543279"
+              Start="0,0"
+              End="0,51.714280543279">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.714280543279" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\資料流程工作\模糊查閱">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\資料流程工作\OLE DB 目的地">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\資料流程工作 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,48"
+          Id="Package\資料流程工作 1\一般檔案來源"
+          TopLeft="163,52" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\資料流程工作 1\資料轉換"
+          TopLeft="174,130" />
+        <EdgeLayout
+          Id="Package\資料流程工作 1.Paths[一般檔案來源輸出]"
+          TopLeft="238,100">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="127,42"
+          Id="Package\資料流程工作 1\模糊查閱"
+          TopLeft="175,214" />
+        <EdgeLayout
+          Id="Package\資料流程工作 1.Paths[資料轉換輸出]"
+          TopLeft="238,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162,42"
+          Id="Package\資料流程工作 1\OLE DB 目的地"
+          TopLeft="157,306" />
+        <EdgeLayout
+          Id="Package\資料流程工作 1.Paths[模糊查閱輸出]"
+          TopLeft="238.25,256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\資料流程工作 1\模糊查閱">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\資料流程工作 1\OLE DB 目的地">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

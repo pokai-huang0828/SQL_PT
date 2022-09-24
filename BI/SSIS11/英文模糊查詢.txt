@@ -1,0 +1,27 @@
+
+CREATE TABLE 蹲璣ゅめ
+(
+    め絪腹 INT,
+    ﹎ NCHAR(50),
+    ﹡カ NVARCHAR(50),
+    ﹍カ NVARCHAR(50),
+     NVARCHAR(50)
+)
+GO
+
+CREATE TABLE 璣ゅカ把σ
+(
+    カ NVARCHAR(50),
+    ヘ夹カ NVARCHAR(50)
+)
+GO
+
+
+INSERT INTO 璣ゅカ把σ VALUES('New York','New York')
+INSERT INTO 璣ゅカ把σ VALUES('Los Angeles','Los Angeles')
+INSERT INTO 璣ゅカ把σ VALUES('New Orleans','New Orleans')
+INSERT INTO 璣ゅカ把σ VALUES('Chicago','Chicago')
+INSERT INTO 璣ゅカ把σ VALUES('New Jersey','New Jersey')
+INSERT INTO 璣ゅカ把σ VALUES('Seattle','Seattle')
+GO
+

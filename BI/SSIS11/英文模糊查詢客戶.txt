@@ -1,0 +1,13 @@
+1,Marry Lin,chcago
+2,Jeffery,new yrok
+3,Tina,LoAngel
+4,Chris,new orlean
+5,Doris,new jersy
+6,Emma,seatle
+7,Foris,Newyok
+8,Harry,chi
+9,Ivy,LA
+10,Jessy,new oalen
+11,Ketty,new jery
+12,Linda,NY
+13,Minnie,losangel
