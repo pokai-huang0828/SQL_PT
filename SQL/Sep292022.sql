@@ -211,3 +211,33 @@ AS
 	IF LEN(@name)=3 INSERT INTO 姓名表 VALUES(SUBSTRING(@name,1,1),SUBSTRING(@name,2,2));
 	IF LEN(@name)=4 INSERT INTO 姓名表 VALUES(SUBSTRING(@name,1,2),SUBSTRING(@name,3,2));
 GO
+
+
+--Output    搭配 DML 使用 inserted / deleted
+
+SELECT * FROM [匠匠];
+INSERT INTO [匠匠] VALUES(26,'御飯糰',30);
+UPDATE [匠匠] SET 價錢=45 WHERE 產品編號=26;
+DELETE FROM [匠匠] WHERE 產品編號=26;
+
+--↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ 
+
+INSERT INTO [匠匠]
+	OUTPUT inserted.*
+VALUES(26,'御飯糰',30);
+
+DELETE FROM [匠匠]
+	OUTPUT deleted.*
+WHERE 產品編號=26;
+
+UPDATE [匠匠] SET 價錢=45
+	OUTPUT inserted.產品編號,inserted.品名,inserted.價錢,deleted.價錢
+		,inserted.價錢-deleted.價錢 AS 價差
+WHERE 產品編號=26;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM 練習訂單;
+
+INSERT INTO 練習訂單(金額) VALUES(1111);
+INSERT INTO 練習訂單(金額) OUTPUT inserted.訂單編號 VALUES(5678);
