@@ -66,3 +66,39 @@ SELECT * FROM sys.sysaltfiles;
 	3. 預設只能本機連線使用，無法遠端連線使用(其實可開啟，後果自負)
 */
 
+CREATE DATABASE [新新]
+ON PRIMARY
+(
+	NAME='新新主檔',FILENAME='C:\新新家\D\新主.mdf',
+	SIZE=20MB,MAXSIZE=UNLIMITED,FILEGROWTH=30%
+),
+FILEGROUP 人事群
+(
+	NAME='人事1',FILENAME='C:\新新家\E\人1.ndf',
+	SIZE=10MB,MAXSIZE=UNLIMITED,FILEGROWTH=40%
+),
+(
+	NAME='人事2',FILENAME='C:\新新家\F\人2.ndf',
+	SIZE=10MB,MAXSIZE=UNLIMITED,FILEGROWTH=40%
+),
+(
+	NAME='人事3',FILENAME='C:\新新家\G\人3.ndf',
+	SIZE=10MB,MAXSIZE=UNLIMITED,FILEGROWTH=40%
+),
+FILEGROUP 會計群
+(
+	NAME='會計1',FILENAME='C:\新新家\H\會1.ndf',
+	SIZE=15MB,MAXSIZE=UNLIMITED,FILEGROWTH=50%
+),
+(
+	NAME='會計2',FILENAME='C:\新新家\I\會2.ndf',
+	SIZE=15MB,MAXSIZE=UNLIMITED,FILEGROWTH=50%
+)
+
+LOG ON
+(
+	NAME='新新記錄',FILENAME='C:\新新家\J\新記.ldf',
+	SIZE=50MB,MAXSIZE=UNLIMITED,FILEGROWTH=30%
+)
+
+-----------------------------------------------------
