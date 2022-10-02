@@ -29,3 +29,40 @@ ON PRIMARY
 	NAME='TESTDATA', FILENAME='C:\test+\testdata.mdf',
 	SIZE=20MB, MAXSIZE=UNLIMITED, FILEGROWTH=30MB
 )
+
+--------------------------------------------------
+
+CREATE DATABASE 練習
+ON PRIMARY
+(
+	NAME='主資料檔', FILENAME='C:\練習的家\練資.mdf',
+	SIZE=20MB, MAXSIZE=UNLIMITED, FILEGROWTH=50%
+)
+LOG ON
+(
+	NAME='記錄檔', FILENAME='C:\練習的家\練記.ldf',
+	SIZE=30MB, MAXSIZE=UNLIMITED, FILEGROWTH=60%
+)
+
+
+EXEC sp_helpdb;
+EXEC sp_helpdb '練習';
+
+SELECT * FROM sys.databases;
+USE 練習
+GO
+
+--SELECT DB_NAME();  --查詢正在使用的db
+EXEC sp_helpfilegroup;
+SELECT * FROM sys.filegroups;
+
+
+EXEC sp_helpfile;
+SELECT * FROM sys.sysaltfiles;
+
+/*--- 管理員專屬連線 (DAC)
+	1. 必須為管理員帳號
+	2. 每個SQL執行個體(instance)只有一條
+	3. 預設只能本機連線使用，無法遠端連線使用(其實可開啟，後果自負)
+*/
+
