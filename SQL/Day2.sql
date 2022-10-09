@@ -58,7 +58,7 @@ USE [新新];
 ALTER DATABASE [新新] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
 ALTER DATABASE [新新] SET MULTI_USER WITH ROLLBACK IMMEDIATE;
 	
-
+--- 匯入資料
 USE [master]
 GO
 CREATE DATABASE [AdventureWorks2012] ON 
@@ -73,6 +73,7 @@ CREATE DATABASE [中文北風] ON
  FOR ATTACH
 GO
 
+
 CREATE DATABASE [練練] ON 
 ( FILENAME = N'C:\SQLData\練練.mdf' ),
 ( FILENAME = N'C:\SQLData\練練_log.ldf' )
@@ -84,6 +85,7 @@ SELECT * FROM sys.databases;
 ALTER DATABASE [AdventureWorks2012] SET COMPATIBILITY_LEVEL=150;
 ALTER DATABASE [中文北風] SET COMPATIBILITY_LEVEL=150;
 ALTER DATABASE [練練] SET COMPATIBILITY_LEVEL=150;
+
 
 /* 壓縮資料庫 / 檔案
 	Shrink 功能目標
@@ -104,6 +106,8 @@ DBCC SHRINKFILE(N'會計2', EMPTYFILE)
 GO
 ALTER DATABASE [新新] REMOVE FILE [會計2];
 GO
+EXEC sp_helpdb '新新';
+
 
 -- 加入資料 / 群組
 ALTER DATABASE [新新] ADD FILE
@@ -123,3 +127,15 @@ ALTER DATABASE [新新] ADD FILE
 ) TO FILEGROUP [行銷群]
 GO
 EXEC sp_helpdb '新新';
+
+-------------------------------------------------------------
+
+EXEC sp_who;
+KILL 53;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ALTER DATABASE [新新] MODIFY FILEGROUP [人事群] DEFAULT;
+GO
+ALTER DATABASE [新新] MODIFY FILEGROUP [行銷群] READ_ONLY;		-- READ_ONLY | READONLY	| READ_WRITE
+GO
